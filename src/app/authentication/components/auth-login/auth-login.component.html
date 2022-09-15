@@ -1,0 +1,13 @@
+<form (ngSubmit)="onSubmitForm()" [formGroup]="authenticationForm" class="margin-top-16">
+
+    <input matInput type="email" formControlName="Email">
+
+    <input matInput type="password" formControlName="Password">
+
+  <button
+    [disabled]="authenticationForm.invalid"
+    type="submit">
+    Login
+  </button>
+
+</form>
