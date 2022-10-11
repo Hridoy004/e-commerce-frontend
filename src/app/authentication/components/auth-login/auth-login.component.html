@@ -1,13 +1,39 @@
-<form (ngSubmit)="onSubmitForm()" [formGroup]="authenticationForm" class="margin-top-16">
+<div class="auth-login-wrapper">
+  <div class="auth-login-container">
+   <mat-card class="card">
 
-    <input matInput type="email" formControlName="Email">
+     <div class="logo">
+       <img src="assets/img/logo.png">
+       <p class="title">Avenue</p>
+       <p class="sub-title">Continue log in with email and password</p>
+     </div>
 
-    <input matInput type="password" formControlName="Password">
+     <form (ngSubmit)="onSubmitForm()"
+           [formGroup]="authenticationForm" class="margin-top-16">
 
-  <button
-    [disabled]="authenticationForm.invalid"
-    type="submit">
-    Login
-  </button>
+       <mat-form-field appearance="outline">
+         <mat-label>Email</mat-label>
+         <input matInput type="email" formControlName="Email">
+       </mat-form-field>
 
-</form>
+       <mat-form-field appearance="outline">
+         <mat-label>Password</mat-label>
+         <input matInput type="password" formControlName="Password">
+       </mat-form-field>
+
+       <button
+         class="padding-h-24"
+         mat-raised-button color="primary"
+         [disabled]="authenticationForm.invalid"
+         type="submit">
+         Login
+       </button>
+
+     </form>
+   </mat-card>
+  </div>
+</div>
+
+
+
+// 16 min
