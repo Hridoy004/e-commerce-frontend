@@ -35,7 +35,7 @@ export class AuthLoginComponent implements OnInit {
         const token = response.Token;
         this.tokenService.setToken(token);
         this.matSnackbar.open('Login success', undefined, {
-          duration: 300
+          duration: 3000
         });
         this.router.navigate(['/']).then();
       }
