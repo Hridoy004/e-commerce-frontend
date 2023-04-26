@@ -1,0 +1,46 @@
+.auth-registration-wrapper {
+  position: relative;
+  height: 100vh;
+  background-image: url("../../../../assets/img/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .auth-registration-container {
+    width: 620px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .card {
+      padding: 32px;
+      //background-color: #cfd2d5;
+    }
+
+    .logo {
+
+      text-align: center;
+
+      img {
+        display: block;
+        margin: 0 auto;
+        height: 80px;
+        width: 80px;
+      }
+
+      .title {
+        font-size: 20px;
+        margin: 0;
+      }
+
+      .sub-title {
+        font-size: 12px;
+        margin: 0;
+      }
+
+    }
+
+  }
+
+}

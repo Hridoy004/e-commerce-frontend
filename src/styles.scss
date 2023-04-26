@@ -3,6 +3,12 @@
 @include mat.core();
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+@import '~bootstrap/scss/bootstrap.scss';
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/saga-blue/theme.css";
+@import "~primeng/resources/primeng.min.css";
+@import "assets/scss/shell";
+
 
 $primary: mat.define-palette(mat.$orange-palette, 300);
 $accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
@@ -37,7 +43,7 @@ body {
 }
 
 .mat-form-field {
-  width: 100%
+  width: 100%;
 }
 
 .margin-top-10 {
@@ -48,18 +54,16 @@ body {
   margin-top: 16px;
 }
 
-
 .padding-16 {
   padding: 16px;
 }
 
-.padding-h-16  {
+.padding-h-16 {
   padding-left: 16px !important;
   padding-right: 16px !important;
 }
 
 .padding-h-24 {
-  padding-left: 26px !important;
+  padding-left: 24px !important;
   padding-right: 24px !important;
-
 }

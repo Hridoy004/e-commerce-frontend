@@ -1,0 +1,45 @@
+<div class="auth-registration-wrapper">
+  <div class="auth-registration-container">
+    <mat-card class="card">
+
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="image is not found">
+        <p class="title">Avenue</p>
+        <p class="sub-title">Continue log in with email address</p>
+      </div>
+
+      <form (ngSubmit)="onSubmitForm()"
+            [formGroup]="authenticationForm" class="margin-top-16">
+
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="FirstName">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="LastName">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="Email">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="Password">
+        </mat-form-field>
+
+        <button
+          class="padding-h-24"
+          mat-raised-button color="primary"
+          [disabled]="authenticationForm.invalid"
+          type="submit">
+          Register
+        </button>
+
+      </form>
+    </mat-card>
+  </div>
+</div>
