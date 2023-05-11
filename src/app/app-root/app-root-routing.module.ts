@@ -11,9 +11,9 @@ const routes: Routes = [
     loadChildren: () => import('../app-authentication/authentication.module').then(m => m.AuthenticationModule)
   },
   {
-    path: 'dashboard',
+    path: 'a',
     loadChildren: () => import('../app-admin-panel/app-admin.module').then(m => m.AppAdminModule)
-  }
+  },
 ];
 
 @NgModule({

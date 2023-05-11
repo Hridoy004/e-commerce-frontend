@@ -17,7 +17,8 @@ export function startupServiceFactory(startupService: StartupService,
   const redirectLocations = [
     '/auth/login',
     '/auth/register',
-    '/auth/verify'
+    '/auth/verify',
+    '/a/categories'
   ]
 
   return () => {

@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Authenticate } from "../interfaces/authenticate.interface";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import {Registration} from "../interfaces/registration.interfaces";
+
+const httpOptions = {
+  headers: new HttpHeaders({})
+};
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +32,11 @@ export class BackendService {
   Registration(authenticate: Registration) {
     let url = `${this.baseUrl}/Authentication/Register`;
     return this.httpClient.post(url, authenticate);
+  }
+
+  Category() {
+    let url = `${this.baseUrl}/Api/V1/Categories/`;
+    return this.httpClient.get(url, httpOptions);
   }
 
 }
