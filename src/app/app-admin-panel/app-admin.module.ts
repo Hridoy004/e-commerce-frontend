@@ -13,13 +13,22 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { ButtonModule } from "primeng/button";
+import { AdminCategoriesFormComponent } from './components/admin-categories-form/admin-categories-form.component';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { AppCustomErrorModule } from "../app-custom-error/app-custom-error.module";
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatInputModule } from "@angular/material/input";
+import { InputTextModule } from "primeng/inputtext";
+import { MatGridListModule } from "@angular/material/grid-list";
+
 
 @NgModule({
   declarations: [
     ShellComponent,
     SidebarComponent,
     DashboardComponent,
-    CategoriesListComponent
+    CategoriesListComponent,
+    AdminCategoriesFormComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +40,12 @@ import { ButtonModule } from "primeng/button";
     MatToolbarModule,
     MatButtonModule,
     ButtonModule,
+    MatFormFieldModule,
+    AppCustomErrorModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    InputTextModule,
+    MatGridListModule,
   ]
 })
 export class AppAdminModule { }

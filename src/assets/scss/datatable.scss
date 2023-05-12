@@ -1,0 +1,11 @@
+@import "variables";
+
+.ngx-datatable.material .datatable-footer .datatable-pager li.active a {
+  background-color: $primary-color !important;
+}
+
+.column-text-bold {
+  span {
+    font-weight: bold;
+  }
+}

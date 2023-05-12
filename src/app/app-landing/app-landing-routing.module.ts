@@ -5,8 +5,14 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent,
-  },
+    pathMatch: 'full',
+    children: [
+      {
+        path: '',
+        component: HomePageComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({

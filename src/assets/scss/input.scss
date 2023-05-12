@@ -1,0 +1,159 @@
+@import "./variables";
+
+.avenue-form-field {
+
+  .mat-form-field {
+    width: auto !important;
+  }
+
+  .avenue-input-36, .avenue-input-36-auto {
+    border: 1px solid $border-color;
+    height: 36px;
+    line-height: 36px;
+    padding-left: 16px;
+    width: 100%;
+    background-color: transparent;
+
+    &:focus {
+      outline: none !important;
+      border: 1px solid $primary-color;
+    }
+  }
+
+  .avenue-input, .avenue-input-auto {
+    border: 1px solid $border-color;
+    height: 42px;
+    line-height: 42px;
+    padding-left: 15px;
+    width: 100%;
+
+    &:focus {
+      outline: none !important;
+      border: 1px solid $primary-color;
+    }
+
+  }
+
+  .avenue-input-text-area {
+    border: 1px solid $border-color;
+    line-height: 42px;
+    padding-left: 15px;
+    width: 100%;
+
+    &:focus {
+      outline: none !important;
+      border: 1px solid $primary-color;
+    }
+
+  }
+
+  .avenue-input-auto, .avenue-input-36-auto {
+    width: auto !important;
+  }
+
+  .avenue-label {
+    display: block;
+    color: #666666;
+    margin-bottom: 8px;
+  }
+
+  .avenue-datepicker {
+    position: relative;
+
+
+    .mat-datepicker-toggle {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .mat-form-field-wrapper {
+    padding: 2px 24px !important;
+    border: 1px solid rgba(0, 0, 0, 0.12)
+  }
+
+  &.error {
+    .avenue-input {
+      border: 1px solid #e0301e;
+    }
+
+    .avenue-label {
+      color: #e0301e;
+    }
+  }
+}
+
+.avenue-date-range-picker {
+  line-height: 19.5px !important;
+
+  .mat-form-field-infix {
+    border-top: 0 !important;
+  }
+
+  .mat-form-field-underline {
+    height: 0 !important;
+  }
+
+  .mat-form-field-ripple {
+    height: 0 !important;
+  }
+
+  .mat-form-field-wrapper {
+    padding: 4px 24px !important;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: #fff;
+  }
+}
+
+.avenue-date-range-picker-filter {
+  width: 97%;
+
+  .mat-form-field-infix {
+    border-top: 0 !important;
+  }
+
+  .mat-form-field-underline {
+    height: 0 !important;
+  }
+
+  .mat-form-field-ripple {
+    height: 0 !important;
+  }
+
+  .mat-form-field-wrapper {
+    padding: 4px 24px !important;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+}
+
+.avenue-date-range-picker-dashboard-filter {
+  width: 97%;
+
+  .mat-form-field-infix {
+    border-top: 0 !important;
+    width: 170px;
+  }
+
+  .mat-form-field-underline {
+    height: 0 !important;
+  }
+
+  .mat-form-field-ripple {
+    height: 0 !important;
+  }
+
+  .mat-form-field-wrapper {
+    padding: 0px 24px !important;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    line-height: 22px;
+  }
+}
+
+.email-chip-list {
+  width: 100%;
+
+  .mat-form-field-label-wrapper {
+    display: none;
+  }
+}

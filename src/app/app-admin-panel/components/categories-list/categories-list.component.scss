@@ -2,6 +2,15 @@ table {
   width: 100%;
 }
 
-p {
-  margin: 0px;
+.margin-right-4 {
+  margin-right: 4px !important;
+}
+
+.card-margin-bottom-20 {
+  margin-bottom: 20px;
+  align-items: end;
+}
+
+mat-grid-tile {
+  background: #F8F9FA;
 }
