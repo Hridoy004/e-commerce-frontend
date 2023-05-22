@@ -18,7 +18,7 @@ export function startupServiceFactory(startupService: StartupService,
     '/auth/login',
     '/auth/register',
     '/auth/verify',
-    '/a/categories'
+    '/a/categories',
   ]
 
   return () => {

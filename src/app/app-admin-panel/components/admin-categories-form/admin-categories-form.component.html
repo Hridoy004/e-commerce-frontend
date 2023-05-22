@@ -11,7 +11,10 @@
             <mat-toolbar class="categories-button">
               <button
                 mat-raised-button
-                color="primary">
+                color="primary"
+                type="submit"
+                (click)="onFormSubmit()"
+              >
                 <i class="pi pi-plus margin-right-4"></i>
                 {{ editmode ? 'Update' : 'Create' }}
               </button>
@@ -26,42 +29,45 @@
           </div>
         </div>
       </div>
-      <form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
-        <div fxLayout="row" fxLayoutGap="16px">
-          <div
-            fxFlex="50"
-            class="margin-bottom-16 avenue-form-field"
-            [ngClass]="{ error: enabledErrorIf('FirstName', ['required', 'pattern'])}"
-          >
-            <label class="avenue-label">Name</label>
-            <input type="text" class="avenue-input" formControlName="FirstName"/>
-            <avenue-mat-error>
-              <mat-error *ngIf="hasError('FirstName', 'required')">
-                First name is required
-              </mat-error>
-              <mat-error *ngIf="hasError('FirstName', 'pattern')">
-                Invalid first name pattern
-              </mat-error>
-            </avenue-mat-error>
+      <div class="margin-top-20">
+        <form [formGroup]="categoriesForm" (ngSubmit)="onFormSubmit()">
+          <div fxLayout="row" fxLayoutGap="16px">
+            <div
+              fxFlex="50"
+              class="margin-bottom-16 avenue-form-field"
+              [ngClass]="{ error: enabledErrorIf('name', ['required', 'pattern'])}"
+            >
+              <label class="avenue-label">Name</label>
+              <input type="text" class="avenue-input" formControlName="name"/>
+              <avenue-mat-error>
+                <mat-error *ngIf="hasError('name', 'required')">
+                  First name is required
+                </mat-error>
+                <mat-error *ngIf="hasError('name', 'pattern')">
+                  Invalid first name pattern
+                </mat-error>
+              </avenue-mat-error>
+            </div>
+            <div
+              fxFlex="50"
+              class="margin-bottom-16 avenue-form-field"
+              [ngClass]="{ error: enabledErrorIf('icon', ['required', 'pattern'])}"
+            >
+              <label class="avenue-label">Icon</label>
+              <input type="text" class="avenue-input" formControlName="icon"/>
+              <avenue-mat-error>
+                <mat-error *ngIf="hasError('icon', 'required')">
+                  Last name is required
+                </mat-error>
+                <mat-error *ngIf="hasError('icon', 'pattern')">
+                  Invalid last name pattern
+                </mat-error>
+              </avenue-mat-error>
+            </div>
           </div>
-          <div
-            fxFlex="50"
-            class="margin-bottom-16 avenue-form-field"
-            [ngClass]="{ error: enabledErrorIf('LastName', ['required', 'pattern'])}"
-          >
-            <label class="avenue-label">icon</label>
-            <input type="text" class="avenue-input" formControlName="LastName"/>
-            <avenue-mat-error>
-              <mat-error *ngIf="hasError('LastName', 'required')">
-                Last name is required
-              </mat-error>
-              <mat-error *ngIf="hasError('LastName', 'pattern')">
-                Invalid last name pattern
-              </mat-error>
-            </avenue-mat-error>
-          </div>
-        </div>
-      </form>
+
+        </form>
+      </div>
     </mat-card>
   </div>
 </div>

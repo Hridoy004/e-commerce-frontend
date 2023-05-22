@@ -20,6 +20,9 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
 import { InputTextModule } from "primeng/inputtext";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatDialogModule } from "@angular/material/dialog";
+import { ConfirmBoxComponent } from './components/confirm-box/confirm-box.component';
 
 
 @NgModule({
@@ -29,6 +32,7 @@ import { MatGridListModule } from "@angular/material/grid-list";
     DashboardComponent,
     CategoriesListComponent,
     AdminCategoriesFormComponent,
+    ConfirmBoxComponent,
   ],
   imports: [
     CommonModule,
@@ -46,6 +50,9 @@ import { MatGridListModule } from "@angular/material/grid-list";
     MatInputModule,
     InputTextModule,
     MatGridListModule,
+    MatSnackBarModule,
+    MatDialogModule,
+
   ]
 })
 export class AppAdminModule { }

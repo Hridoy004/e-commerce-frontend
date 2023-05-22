@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { RegexValidators } from "../../../app-e-eommerce-constants/e-commerce-constants";
+import { BackendService } from "../../../app-shared-services/services/backend.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-admin-categories-form',
@@ -9,49 +12,62 @@ import { RegexValidators } from "../../../app-e-eommerce-constants/e-commerce-co
 })
 export class AdminCategoriesFormComponent implements OnInit {
 
-
   editmode = false;
 
-  userForm = new FormGroup({
-    UserId: new FormControl('', [Validators.required]),
-    FirstName: new FormControl('', [
+  categoriesForm = new FormGroup({
+    name: new FormControl('', [
       Validators.required,
       Validators.pattern(RegexValidators.ENGLISH_CHARACTER)
     ]),
-    LastName: new FormControl('', [
+    icon: new FormControl('', [
       Validators.required,
       Validators.pattern(RegexValidators.ENGLISH_CHARACTER)
     ]),
 
   })
 
+  constructor(private backendService: BackendService,
+              private matSnackbar: MatSnackBar,
+              private router: Router) {
+  }
+
+  ngOnInit(): void {
+  }
 
   hasError(controlName: string, type: string) {
-    const formControl = this.userForm.get(controlName);
+    const formControl = this.categoriesForm.get(controlName);
     return formControl && formControl.hasError(type) && formControl.touched;
   }
 
   enabledErrorIf(controlName: string, types: string[]) {
     for (let i = 0; i < types.length; i++) {
       const type = types[i];
-      const formControl = this.userForm.get(controlName);
+      const formControl = this.categoriesForm.get(controlName);
       if (formControl && formControl.hasError(type) && formControl.touched)
         return true;
     }
     return false;
   }
 
-
   onFormSubmit() {
-    // handle form submission
+    if (this.categoriesForm.invalid) {
+      return;
+    }
+    const data: any = this.categoriesForm.getRawValue();
+    this.backendService.CreateCategories(data).subscribe((response: any) => {
+      console.log(response.Success)
+      if(response.Success) {
+        this.matSnackbar.open('Category created successfully', undefined, {
+          duration: 3000
+        });
+      }
+    },(errorResponse: any) => {
+      let errorMessage = errorResponse?.error?.Message;
+      if(errorMessage) {
+        this.matSnackbar.open(errorMessage, undefined, {
+          duration: 3000
+        })
+      }
+    })
   }
-
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
-
 }
