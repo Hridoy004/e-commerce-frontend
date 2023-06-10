@@ -6,7 +6,7 @@ import { ShellComponent } from './components/shell/shell.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MatCardModule } from "@angular/material/card";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { CategoriesListComponent } from './components/categories-list/categories-list.component';
+import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
 import { FlexModule } from "@angular/flex-layout";
 import { MatTableModule } from "@angular/material/table";
 import { MatIconModule } from "@angular/material/icon";
@@ -23,6 +23,12 @@ import { MatGridListModule } from "@angular/material/grid-list";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatDialogModule } from "@angular/material/dialog";
 import { ConfirmBoxComponent } from './components/confirm-box/confirm-box.component';
+import { CategoriesFormComponent } from './components/categories/categories-form/categories-form.component';
+import { ToastModule } from "primeng/toast";
+import { CardModule } from "primeng/card";
+import { ToolbarModule } from "primeng/toolbar";
+import { TableModule } from "primeng/table";
+import { ConfirmDialogModule } from "primeng/confirmdialog";
 
 
 @NgModule({
@@ -33,6 +39,7 @@ import { ConfirmBoxComponent } from './components/confirm-box/confirm-box.compon
     CategoriesListComponent,
     AdminCategoriesFormComponent,
     ConfirmBoxComponent,
+    CategoriesFormComponent,
   ],
   imports: [
     CommonModule,
@@ -52,6 +59,11 @@ import { ConfirmBoxComponent } from './components/confirm-box/confirm-box.compon
     MatGridListModule,
     MatSnackBarModule,
     MatDialogModule,
+    ToastModule,
+    CardModule,
+    ToolbarModule,
+    TableModule,
+    ConfirmDialogModule,
 
   ]
 })
