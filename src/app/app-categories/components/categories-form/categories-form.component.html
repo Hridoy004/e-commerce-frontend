@@ -1,32 +1,27 @@
 <div class="admin-page">
   <div class="categories-form-wrapper">
-    <mat-card>
-      <div>
-        <p class="title">
-          {{ editmode ? 'Edit Category' : 'Add Category' }}
-        </p>
-        <p class="sub-title margin-top-10">You can add or edit categories here</p>
-        <div class="margin-top-30">
-          <div class="card-margin-bottom-20">
-            <mat-toolbar class="categories-button">
-              <button
-                mat-raised-button
-                color="primary"
-                type="submit"
+    <p-card
+      [header]="editmode ? 'Edit Category' : 'Add Category'"
+      subheader="You can add or edit categories here"
+    >
+      <div class="p-grid p-mb-5">
+        <div class="p-col-12">
+          <p-toolbar>
+            <div class="p-toolbar-group-left"></div>
+            <div class="p-toolbar-group-right">
+              <p-button
+                styleClass="p-button-primary p-mr-2"
+                [label]="editmode ? 'Update' : 'Create'"
+                icon="pi pi-plus"
                 (click)="onFormSubmit()"
-              >
-                <i class="pi pi-plus margin-right-4"></i>
-                {{ editmode ? 'Update' : 'Create' }}
-              </button>
-              <button
-                mat-raised-button
-                color="accent"
-                class="margin-left-4">
-                <i class="pi pi-arrow-circle-left margin-right-4"></i>
-                Cancel
-              </button>
-            </mat-toolbar>
-          </div>
+              ></p-button>
+              <p-button
+                styleClass="p-button-secondary"
+                label="Cancle"
+                icon="pi pi-arrow-circle-left"
+              ></p-button>
+            </div>
+          </p-toolbar>
         </div>
       </div>
       <div class="margin-top-20">
@@ -41,10 +36,10 @@
               <input type="text" class="avenue-input" formControlName="name"/>
               <avenue-mat-error>
                 <mat-error *ngIf="hasError('name', 'required')">
-                  First name is required
+                  Name is required
                 </mat-error>
                 <mat-error *ngIf="hasError('name', 'pattern')">
-                  Invalid first name pattern
+                  Invalid name pattern
                 </mat-error>
               </avenue-mat-error>
             </div>
@@ -57,18 +52,16 @@
               <input type="text" class="avenue-input" formControlName="icon"/>
               <avenue-mat-error>
                 <mat-error *ngIf="hasError('icon', 'required')">
-                  Last name is required
+                  Icon is required
                 </mat-error>
                 <mat-error *ngIf="hasError('icon', 'pattern')">
-                  Invalid last name pattern
+                  Invalid icon pattern
                 </mat-error>
               </avenue-mat-error>
             </div>
           </div>
-          <button type="button" class="btn btn-primary">Primary</button>
-          <button type="button" class="btn btn-secondary">Secondary</button>
         </form>
       </div>
-    </mat-card>
+    </p-card>
   </div>
 </div>

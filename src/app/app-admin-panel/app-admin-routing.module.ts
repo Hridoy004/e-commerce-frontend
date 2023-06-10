@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ShellComponent } from "./components/shell/shell.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
-import { CategoriesListComponent } from "./components/categories/categories-list/categories-list.component";
-import { AdminCategoriesFormComponent } from "./components/admin-categories-form/admin-categories-form.component";
+import { CategoriesFormComponent } from "../app-categories/components/categories-form/categories-form.component";
+import { CategoriesListComponent } from "../app-categories/components/categories-list/categories-list.component";
 
 const routes: Routes = [
   {
@@ -15,12 +15,12 @@ const routes: Routes = [
         component: DashboardComponent
       },
       {
-        path: 'categories',
-        component: CategoriesListComponent
+        path: 'categories-form',
+        component: CategoriesFormComponent
       },
       {
-        path: 'categories/form',
-        component: AdminCategoriesFormComponent
+        path: 'categories-list',
+        component: CategoriesListComponent
       }
     ]
   }

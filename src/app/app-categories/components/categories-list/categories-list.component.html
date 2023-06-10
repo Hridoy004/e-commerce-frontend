@@ -1,4 +1,3 @@
-<p-toast></p-toast>
 <div class="admin-page">
   <p-card header="Categories" subheader="List of all categories">
     <div class="p-grid">
@@ -9,7 +8,7 @@
               styleClass="p-button-success"
               label="New"
               icon="pi pi-plus"
-              routerLink="form"
+              routerLink="/a/categories-form"
             ></p-button>
           </div>
         </p-toolbar>
@@ -20,7 +19,10 @@
         <p-table [value]="categories" styleClass="p-datatable-gridlines">
           <ng-template pTemplate="header">
             <tr>
-              <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+              <th>Id</th>
+              <th pSortableColumn="name">Name
+                <p-sortIcon field="name"></p-sortIcon>
+              </th>
               <th>Icon</th>
               <th>Color</th>
               <th></th>
@@ -28,6 +30,7 @@
           </ng-template>
           <ng-template pTemplate="body" let-category>
             <tr>
+              <td>{{category.id}}</td>
               <td>{{ category.name }}</td>
               <td><i style="font-size: 2rem" class="pi" [ngClass]="'pi-' + category.icon"></i></td>
               <td>
@@ -44,7 +47,7 @@
                   icon="pi pi-trash"
                 ></p-button>
                 <p-button
-
+                  (click)="updateCategory(category.id)"
                   styleClass="p-button-success"
                   icon="pi pi-pencil"
                 ></p-button>
@@ -56,8 +59,3 @@
     </div>
   </p-card>
 </div>
-<p-confirmDialog
-  [style]="{ width: '50vw' }"
-  [baseZIndex]="10000"
-  rejectButtonStyleClass="p-button-text"
-></p-confirmDialog>
