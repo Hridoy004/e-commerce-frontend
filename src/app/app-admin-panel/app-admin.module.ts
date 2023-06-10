@@ -6,14 +6,13 @@ import { ShellComponent } from './components/shell/shell.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MatCardModule } from "@angular/material/card";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
+import { CategoriesListComponent } from '../app-categories/components/categories-list/categories-list.component';
 import { FlexModule } from "@angular/flex-layout";
 import { MatTableModule } from "@angular/material/table";
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { ButtonModule } from "primeng/button";
-import { AdminCategoriesFormComponent } from './components/admin-categories-form/admin-categories-form.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { AppCustomErrorModule } from "../app-custom-error/app-custom-error.module";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -22,13 +21,13 @@ import { InputTextModule } from "primeng/inputtext";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatDialogModule } from "@angular/material/dialog";
-import { ConfirmBoxComponent } from './components/confirm-box/confirm-box.component';
-import { CategoriesFormComponent } from './components/categories/categories-form/categories-form.component';
+import { CategoriesFormComponent } from '../app-categories/components/categories-form/categories-form.component';
 import { ToastModule } from "primeng/toast";
 import { CardModule } from "primeng/card";
 import { ToolbarModule } from "primeng/toolbar";
 import { TableModule } from "primeng/table";
 import { ConfirmDialogModule } from "primeng/confirmdialog";
+import { FooterComponent } from "../app-landing/components/footer/footer.component";
 
 
 @NgModule({
@@ -37,9 +36,8 @@ import { ConfirmDialogModule } from "primeng/confirmdialog";
     SidebarComponent,
     DashboardComponent,
     CategoriesListComponent,
-    AdminCategoriesFormComponent,
-    ConfirmBoxComponent,
     CategoriesFormComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -67,4 +65,5 @@ import { ConfirmDialogModule } from "primeng/confirmdialog";
 
   ]
 })
-export class AppAdminModule { }
+export class AppAdminModule {
+}

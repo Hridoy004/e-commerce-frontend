@@ -6,12 +6,11 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-admin-categories-form',
-  templateUrl: './admin-categories-form.component.html',
-  styleUrls: ['./admin-categories-form.component.scss']
+  selector: 'app-categories-form',
+  templateUrl: './categories-form.component.html',
+  styleUrls: ['./categories-form.component.scss']
 })
-export class AdminCategoriesFormComponent implements OnInit {
-
+export class CategoriesFormComponent implements OnInit {
   editmode = false;
 
   categoriesForm = new FormGroup({
@@ -56,14 +55,14 @@ export class AdminCategoriesFormComponent implements OnInit {
     const data: any = this.categoriesForm.getRawValue();
     this.backendService.CreateCategories(data).subscribe((response: any) => {
       console.log(response.Success)
-      if(response.Success) {
+      if (response.Success) {
         this.matSnackbar.open('Category created successfully', undefined, {
           duration: 3000
         });
       }
-    },(errorResponse: any) => {
+    }, (errorResponse: any) => {
       let errorMessage = errorResponse?.error?.Message;
-      if(errorMessage) {
+      if (errorMessage) {
         this.matSnackbar.open(errorMessage, undefined, {
           duration: 3000
         })

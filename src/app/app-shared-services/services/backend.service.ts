@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Authenticate } from "../interfaces/authenticate.interface";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import {Registration} from "../interfaces/registration.interfaces";
-import { Category } from "../../app-admin-panel/interfaces/category.interface";
+import { Category } from "../../app-categories/interfaces/category.interface";
 import { TokenService } from "./token.service";
 
 const httpOptions = {
