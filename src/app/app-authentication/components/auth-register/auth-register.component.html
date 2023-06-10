@@ -24,11 +24,23 @@
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
           <input matInput type="email" formControlName="Email">
+          <mat-error>
+            <p *ngIf="authenticationForm.controls.Email
+           .hasError('required')">Email address is required</p>
+            <p *ngIf="authenticationForm.controls.Email
+           .hasError('email')">Invalid email Address</p>
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
           <input matInput type="password" formControlName="Password">
+          <mat-error>
+            <p *ngIf="authenticationForm.controls.Password
+           .hasError('required')">Password is required</p>
+            <p *ngIf="authenticationForm.controls.Password
+           .hasError('minlength')">Password needs to be at least 8 character long</p>
+          </mat-error>
         </mat-form-field>
 
         <button
