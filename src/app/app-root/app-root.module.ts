@@ -10,6 +10,7 @@ import { BackendService } from "../app-shared-services/services/backend.service"
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppSharedModule } from "../app-shared/app-shared.module";
+import { ConfirmationService, MessageService } from "primeng/api";
 
 export function startupServiceFactory(startupService: StartupService,
                                       tokenService: TokenService): Function {
@@ -18,7 +19,6 @@ export function startupServiceFactory(startupService: StartupService,
     '/auth/login',
     '/auth/register',
     '/auth/verify',
-    '/a/categories',
   ]
 
   return () => {
@@ -50,7 +50,9 @@ export function startupServiceFactory(startupService: StartupService,
     StartupService,
     TokenService,
     UserService,
-    BackendService
+    BackendService,
+    MessageService,
+    ConfirmationService,
   ],
   imports: [
     BrowserModule,

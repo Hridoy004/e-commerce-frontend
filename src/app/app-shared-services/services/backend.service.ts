@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Authenticate } from "../interfaces/authenticate.interface";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import {Registration} from "../interfaces/registration.interfaces";
+import { Registration } from "../interfaces/registration.interfaces";
 import { Category } from "../../app-categories/interfaces/category.interface";
 import { TokenService } from "./token.service";
 
 const httpOptions = {
-  headers: new HttpHeaders({
-  })
+  headers: new HttpHeaders({})
 };
 
 @Injectable({
@@ -59,6 +58,15 @@ export class BackendService {
     return this.httpClient.delete(url, httpOptions);
   }
 
-
+  UpdateCategories(categoryId: string) {
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    const url = `${this.baseUrl}/api/v1/categories/${categoryId}`;
+    return this.httpClient.put(url, httpOptions);
+  }
 
 }

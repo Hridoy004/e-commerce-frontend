@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ShellComponent } from "./components/shell/shell.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
-import { CategoriesFormComponent } from "../app-categories/components/categories-form/categories-form.component";
-import { CategoriesListComponent } from "../app-categories/components/categories-list/categories-list.component";
 
 const routes: Routes = [
   {
@@ -15,12 +13,8 @@ const routes: Routes = [
         component: DashboardComponent
       },
       {
-        path: 'categories-form',
-        component: CategoriesFormComponent
-      },
-      {
-        path: 'categories-list',
-        component: CategoriesListComponent
+        path: 'c',
+        loadChildren: () => import('../app-categories/app-categories.module').then(m => m.AppCategoriesModule)
       }
     ]
   }

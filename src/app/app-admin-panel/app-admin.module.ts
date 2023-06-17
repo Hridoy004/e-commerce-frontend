@@ -6,7 +6,6 @@ import { ShellComponent } from './components/shell/shell.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MatCardModule } from "@angular/material/card";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { CategoriesListComponent } from '../app-categories/components/categories-list/categories-list.component';
 import { FlexModule } from "@angular/flex-layout";
 import { MatTableModule } from "@angular/material/table";
 import { MatIconModule } from "@angular/material/icon";
@@ -21,7 +20,6 @@ import { InputTextModule } from "primeng/inputtext";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatDialogModule } from "@angular/material/dialog";
-import { CategoriesFormComponent } from '../app-categories/components/categories-form/categories-form.component';
 import { ToastModule } from "primeng/toast";
 import { CardModule } from "primeng/card";
 import { ToolbarModule } from "primeng/toolbar";
@@ -35,8 +33,6 @@ import { FooterComponent } from "../app-landing/components/footer/footer.compone
     ShellComponent,
     SidebarComponent,
     DashboardComponent,
-    CategoriesListComponent,
-    CategoriesFormComponent,
     FooterComponent,
   ],
   imports: [

@@ -59,6 +59,7 @@ export class CategoriesFormComponent implements OnInit {
         this.matSnackbar.open('Category created successfully', undefined, {
           duration: 3000
         });
+        this.router.navigate(['/a/c/categories-list']).then();
       }
     }, (errorResponse: any) => {
       let errorMessage = errorResponse?.error?.Message;
