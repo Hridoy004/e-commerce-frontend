@@ -58,15 +58,26 @@ export class BackendService {
     return this.httpClient.delete(url, httpOptions);
   }
 
-  UpdateCategories(categoryId: string) {
+  UpdateCategories(category: Category) {
     const token = this.tokenService.getToken();
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
       })
     };
-    const url = `${this.baseUrl}/api/v1/categories/${categoryId}`;
-    return this.httpClient.put(url, httpOptions);
+    const url = `${this.baseUrl}/api/v1/categories/`+category.id;
+    return this.httpClient.put(url, category, httpOptions);
+  }
+
+  GetCategoriesId(categoryId: string) {
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    let url = `${this.baseUrl}/Api/V1/Categories/${categoryId}`;
+    return this.httpClient.get(url, httpOptions);
   }
 
 }

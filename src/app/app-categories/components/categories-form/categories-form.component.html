@@ -28,7 +28,7 @@
         <form [formGroup]="categoriesForm" (ngSubmit)="onFormSubmit()">
           <div
             class="margin-bottom-16 avenue-form-field"
-            [ngClass]="{ error: enabledErrorIf('name', ['required', 'pattern'])}"
+            [ngClass]="{ error: enabledErrorIf('name', ['required'])}"
           >
             <label class="avenue-label">Name</label>
             <input type="text" class="avenue-input" formControlName="name"/>
@@ -36,23 +36,17 @@
               <mat-error *ngIf="hasError('name', 'required')">
                 Name is required
               </mat-error>
-              <mat-error *ngIf="hasError('name', 'pattern')">
-                Invalid name pattern
-              </mat-error>
             </avenue-mat-error>
           </div>
           <div
             class="margin-bottom-16 avenue-form-field"
-            [ngClass]="{ error: enabledErrorIf('icon', ['required', 'pattern'])}"
+            [ngClass]="{ error: enabledErrorIf('icon', ['required'])}"
           >
             <label class="avenue-label">Icon</label>
             <input type="text" class="avenue-input" formControlName="icon"/>
             <avenue-mat-error>
               <mat-error *ngIf="hasError('icon', 'required')">
                 Icon is required
-              </mat-error>
-              <mat-error *ngIf="hasError('icon', 'pattern')">
-                Invalid icon pattern
               </mat-error>
             </avenue-mat-error>
           </div>

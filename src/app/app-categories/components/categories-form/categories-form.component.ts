@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { RegexValidators } from "../../../app-e-eommerce-constants/e-commerce-constants";
 import { BackendService } from "../../../app-shared-services/services/backend.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-categories-form',
@@ -15,22 +14,21 @@ export class CategoriesFormComponent implements OnInit {
 
   categoriesForm = new FormGroup({
     name: new FormControl('', [
-      Validators.required,
-      Validators.pattern(RegexValidators.ENGLISH_CHARACTER)
+      Validators.required
     ]),
     icon: new FormControl('', [
-      Validators.required,
-      Validators.pattern(RegexValidators.ENGLISH_CHARACTER)
+      Validators.required
     ]),
-
   })
 
   constructor(private backendService: BackendService,
               private matSnackbar: MatSnackBar,
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this._checkEditMode();
   }
 
   hasError(controlName: string, type: string) {
@@ -53,19 +51,51 @@ export class CategoriesFormComponent implements OnInit {
       return;
     }
     const data: any = this.categoriesForm.getRawValue();
-    this.backendService.CreateCategories(data).subscribe((response: any) => {
-      console.log(response.Success)
-      if (response.Success) {
-        this.matSnackbar.open('Category created successfully', undefined, {
-          duration: 3000
-        });
-        this.router.navigate(['/a/c/categories-list']).then();
-      }
-    }, (errorResponse: any) => {
-      let errorMessage = errorResponse?.error?.Message;
-      if (errorMessage) {
-        this.matSnackbar.open(errorMessage, undefined, {
-          duration: 3000
+    if (this.editmode) {
+      this.route.params.subscribe(params => {
+        data.id = params['id'];
+        this.backendService.UpdateCategories(data).subscribe((response: any) => {
+          if (response.Success) {
+            this.matSnackbar.open('Category updated successfully', undefined, {
+              duration: 3000
+            });
+            this.router.navigate(['/a/c/categories-list']).then();
+          }
+        }, (errorResponse: any) => {
+          let errorMessage = errorResponse?.error?.Message;
+          if (errorMessage) {
+            this.matSnackbar.open(errorMessage, undefined, {
+              duration: 3000
+            })
+          }
+        })
+      })
+    } else {
+      this.backendService.CreateCategories(data).subscribe((response: any) => {
+        if (response.Success) {
+          this.matSnackbar.open('Category created successfully', undefined, {
+            duration: 3000
+          });
+          this.router.navigate(['/a/c/categories-list']).then();
+        }
+      }, (errorResponse: any) => {
+        let errorMessage = errorResponse?.error?.Message;
+        if (errorMessage) {
+          this.matSnackbar.open(errorMessage, undefined, {
+            duration: 3000
+          })
+        }
+      })
+    }
+  }
+
+  private _checkEditMode() {
+    this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.editmode = true;
+        this.backendService.GetCategoriesId(params['id']).subscribe((response: any) => {
+          this.categoriesForm.get('name')?.setValue(response.name);
+          this.categoriesForm.get('icon')?.setValue(response.icon);
         })
       }
     })
