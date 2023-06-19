@@ -23,6 +23,7 @@ import { ToolbarModule } from "primeng/toolbar";
 import { TableModule } from "primeng/table";
 import { ConfirmDialogModule } from "primeng/confirmdialog";
 import { CategoriesFormComponent } from "./components/categories-form/categories-form.component";
+import { ColorPickerModule } from 'primeng/colorpicker';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { CategoriesFormComponent } from "./components/categories-form/categories
     ToolbarModule,
     TableModule,
     ConfirmDialogModule,
+    ColorPickerModule
   ]
 })
 export class AppCategoriesModule {

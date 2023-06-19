@@ -19,6 +19,7 @@ export class CategoriesFormComponent implements OnInit {
     icon: new FormControl('', [
       Validators.required
     ]),
+    color: new FormControl('')
   })
 
   constructor(private backendService: BackendService,
@@ -89,6 +90,10 @@ export class CategoriesFormComponent implements OnInit {
     }
   }
 
+  cancel() {
+    this.router.navigate(['/a/c/categories-list']);
+  }
+
   private _checkEditMode() {
     this.route.params.subscribe(params => {
       if (params['id']) {
@@ -96,6 +101,7 @@ export class CategoriesFormComponent implements OnInit {
         this.backendService.GetCategoriesId(params['id']).subscribe((response: any) => {
           this.categoriesForm.get('name')?.setValue(response.name);
           this.categoriesForm.get('icon')?.setValue(response.icon);
+          this.categoriesForm.get('color')?.setValue(response.color);
         })
       }
     })

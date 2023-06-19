@@ -17,8 +17,9 @@
               ></p-button>
               <p-button
                 styleClass="p-button-secondary"
-                label="Cancle"
+                label="Cancel"
                 icon="pi pi-arrow-circle-left"
+                (click)="cancel()"
               ></p-button>
             </div>
           </p-toolbar>
@@ -31,7 +32,7 @@
             [ngClass]="{ error: enabledErrorIf('name', ['required'])}"
           >
             <label class="avenue-label">Name</label>
-            <input type="text" class="avenue-input" formControlName="name"/>
+            <input type="text" class="avenue-input" formControlName="name" pInputText/>
             <avenue-mat-error>
               <mat-error *ngIf="hasError('name', 'required')">
                 Name is required
@@ -43,12 +44,16 @@
             [ngClass]="{ error: enabledErrorIf('icon', ['required'])}"
           >
             <label class="avenue-label">Icon</label>
-            <input type="text" class="avenue-input" formControlName="icon"/>
+            <input type="text" class="avenue-input" formControlName="icon" pInputText/>
             <avenue-mat-error>
               <mat-error *ngIf="hasError('icon', 'required')">
-                Icon is required
+                <small>Icon is required</small>
               </mat-error>
             </avenue-mat-error>
+          </div>
+          <div class="p-field p-col">
+            <label for="color">Color</label><br />
+            <p-colorPicker class="avenue-input" formControlName="color"></p-colorPicker>
           </div>
         </form>
       </div>
