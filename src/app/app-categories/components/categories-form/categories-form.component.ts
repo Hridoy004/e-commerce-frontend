@@ -26,6 +26,7 @@ export class CategoriesFormComponent implements OnInit {
               private matSnackbar: MatSnackBar,
               private router: Router,
               private route: ActivatedRoute) {
+
   }
 
   ngOnInit(): void {

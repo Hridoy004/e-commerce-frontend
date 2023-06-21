@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfirmationService, MessageService } from "primeng/api";
-import { Router } from "@angular/router";
-import { Subject, takeUntil } from "rxjs";
 import { ProductsService } from "../../services/products.service";
 import { Product } from "../../interfaces/products.interfaces";
+import { Router } from "@angular/router";
+import { ConfirmationService } from "primeng/api";
 
 @Component({
   selector: 'app-product-list',
@@ -11,65 +10,40 @@ import { Product } from "../../interfaces/products.interfaces";
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-
+  editmode = false;
   products: Product[] = [];
 
-  constructor(
-    private productsService: ProductsService,
-    private router: Router,
-    private messageService: MessageService,
-    private confirmationService: ConfirmationService
-  ) {
+  constructor(private productsService: ProductsService,
+              private confirmationService: ConfirmationService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
     this._getProducts();
   }
 
-  ngOnDestroy() {
+  deleteProduct(productId: string) {
+    this.confirmationService.confirm({
+      message: 'Do you want to Delete this Product?',
+      header: 'Delete Product',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.productsService.DeleteProducts(productId).subscribe(() => {
+          this._getProducts();
+        });
+      }
+    });
+  }
 
+  updateProduct(productId: string) {
+    this.router.navigateByUrl(`/a/p/product-form/${productId}`);
   }
 
   private _getProducts() {
     this.productsService.GetProducts().subscribe((products) => {
       // @ts-ignore
       this.products = products;
-      console.log(products);
     })
   }
-
-  updateProduct(productid: string) {
-    this.router.navigateByUrl(`products/form/${productid}`);
-  }
-
-/*  deleteProduct(productId: string) {
-    this.confirmationService.confirm({
-      message: 'Do you want to delete this Product?',
-      header: 'Delete Product',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        this.productsService
-          .deleteProduct(productId)
-          .pipe(takeUntil(this.endsubs$))
-          .subscribe(
-            () => {
-              this._getProducts();
-              this.messageService.add({
-                severity: 'success',
-                summary: 'Success',
-                detail: 'Product is deleted!'
-              });
-            },
-            () => {
-              this.messageService.add({
-                severity: 'error',
-                summary: 'Error',
-                detail: 'Product is not deleted!'
-              });
-            }
-          );
-      }
-    });
-  }*/
 
 }

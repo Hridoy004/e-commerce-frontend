@@ -98,10 +98,10 @@
               >
             </div>
             <div class="p-field p-col-12">
-              <label for="richDescription">Product Details</label><br />
+              <label for="richDescription">Product Details</label><br/>
               <textarea
                 pInputTextarea
-                formControlName="description"
+                formControlName="richDescription"
                 [rows]="5"
                 [cols]="30"
               ></textarea>
@@ -114,11 +114,11 @@
                 accept="image/*"
                 (change)="onImageUpload($event)"
               />
-              <small *ngIf="productForm['image'].invalid && isSubmitted" class="p-error"
-              >Image is required</small
-              >
+              <small *ngIf="productForm['image']
+              .invalid && isSubmitted" class="p-error"
+              >Image is required</small>
               <div class="upload-image">
-                <img style="width: 100%" [src]="imageDisplay" alt="" />
+                <img style="width: 100%" [src]="imageDisplay" alt=""/>
               </div>
             </div>
           </div>

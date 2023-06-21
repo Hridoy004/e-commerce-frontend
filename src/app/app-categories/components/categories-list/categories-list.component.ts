@@ -29,9 +29,8 @@ export class CategoriesListComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.backendService.DeleteCategories(categoryId).subscribe(() => {
-            this._getCategories();
-          }
-        );
+          this._getCategories();
+        });
       }
     });
   }

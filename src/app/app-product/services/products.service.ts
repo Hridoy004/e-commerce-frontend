@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { TokenService } from "../../app-shared-services/services/token.service";
+import { Product } from "../interfaces/products.interfaces";
 
 
 const httpOptions = {
@@ -22,36 +23,51 @@ export class ProductsService {
 
   GetProducts() {
     let url = `${this.baseUrl}/Api/Products/`;
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
     return this.httpClient.get(url, httpOptions);
   }
 
-  /*
-
-  CreateCategories(category: Category) {
-    let url = `${this.baseUrl}/Api/V1/Categories/`;
-    return this.httpClient.post(url, category);
+  CreateProducts(product: FormData) {
+    let url = `${this.baseUrl}/Api/Products/`;
+    return this.httpClient.post(url, product);
   }
 
-  DeleteCategories(categoryId: string) {
+  GetProductsId(productId: string) {
     const token = this.tokenService.getToken();
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
       })
     };
-    const url = `${this.baseUrl}/api/v1/categories/${categoryId}`;
+    let url = `${this.baseUrl}/Api/Products/${productId}`;
+    return this.httpClient.get(url, httpOptions);
+  }
+
+  UpdateCategories(product: FormData, productId: string) {
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    const url = `${this.baseUrl}/Api/Products/${productId}`;
+    return this.httpClient.put(url, product, httpOptions);
+  }
+
+  DeleteProducts(productId: string) {
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    const url = `${this.baseUrl}/api/products/${productId}`;
     return this.httpClient.delete(url, httpOptions);
   }
-
-  UpdateCategories(category: Category) {
-    const token = this.tokenService.getToken();
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${token}`
-      })
-    };
-    const url = `${this.baseUrl}/api/v1/categories/`+category.id;
-    return this.httpClient.put(url, category, httpOptions);
-  }*/
 
 }
