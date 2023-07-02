@@ -37,6 +37,28 @@ export class BackendService {
     return this.httpClient.post(url, authenticate);
   }
 
+  GetUser() {
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    let url = `${this.baseUrl}/Authentication/User`;
+    return this.httpClient.get(url, httpOptions);
+  }
+
+  DeleteUser(userId: string) {
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    const url = `${this.baseUrl}/Authentication/User/${userId}`;
+    return this.httpClient.delete(url, httpOptions);
+  }
+
   GetCategories() {
     let url = `${this.baseUrl}/Api/V1/Categories/`;
     return this.httpClient.get(url, httpOptions);
@@ -65,7 +87,7 @@ export class BackendService {
         'Authorization': `Bearer ${token}`
       })
     };
-    const url = `${this.baseUrl}/api/v1/categories/`+category.id;
+    const url = `${this.baseUrl}/api/v1/categories/` + category.id;
     return this.httpClient.put(url, category, httpOptions);
   }
 
@@ -79,5 +101,6 @@ export class BackendService {
     let url = `${this.baseUrl}/Api/V1/Categories/${categoryId}`;
     return this.httpClient.get(url, httpOptions);
   }
+
 
 }

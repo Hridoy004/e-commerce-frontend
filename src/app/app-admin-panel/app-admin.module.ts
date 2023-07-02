@@ -26,6 +26,7 @@ import { ToolbarModule } from "primeng/toolbar";
 import { TableModule } from "primeng/table";
 import { ConfirmDialogModule } from "primeng/confirmdialog";
 import { FooterComponent } from "../app-landing/components/footer/footer.component";
+import { UsersComponent } from './components/users/users.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { FooterComponent } from "../app-landing/components/footer/footer.compone
     SidebarComponent,
     DashboardComponent,
     FooterComponent,
+    UsersComponent,
   ],
   imports: [
     CommonModule,

@@ -2,16 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { TokenService } from "../../app-shared-services/services/token.service";
 
-
-const httpOptions = {
-  headers: new HttpHeaders({})
-};
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
+export class OrderService {
 
   private baseUrl = 'http://localhost:3000';
 
@@ -20,8 +14,8 @@ export class ProductsService {
 
   }
 
-  GetProducts() {
-    let url = `${this.baseUrl}/Api/Products/`;
+  GetOrders() {
+    let url = `${this.baseUrl}/Api/Order/`;
     const token = this.tokenService.getToken();
     const httpOptions = {
       headers: new HttpHeaders({
@@ -36,36 +30,36 @@ export class ProductsService {
     return this.httpClient.post(url, product);
   }
 
-  GetProductsId(productId: string) {
+  GetOrderId(productId: string) {
     const token = this.tokenService.getToken();
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
       })
     };
-    let url = `${this.baseUrl}/Api/Products/${productId}`;
+    let url = `${this.baseUrl}/api/order/${productId}`;
     return this.httpClient.get(url, httpOptions);
   }
 
-  UpdateProducts(product: FormData, productId: string) {
+  UpdateOrder(orderStatus: { status: string }, orderId: string) {
     const token = this.tokenService.getToken();
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
       })
     };
-    const url = `${this.baseUrl}/Api/Products/${productId}`;
-    return this.httpClient.put(url, product, httpOptions);
+    const url = `${this.baseUrl}/Api/Order/${orderId}`;
+    return this.httpClient.put(url, orderStatus, httpOptions);
   }
 
-  DeleteProducts(productId: string) {
+  DeleteOrder(productId: string) {
     const token = this.tokenService.getToken();
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
       })
     };
-    const url = `${this.baseUrl}/api/products/${productId}`;
+    const url = `${this.baseUrl}/api/order/${productId}`;
     return this.httpClient.delete(url, httpOptions);
   }
 

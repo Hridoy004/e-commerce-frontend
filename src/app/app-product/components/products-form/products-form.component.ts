@@ -46,6 +46,7 @@ export class ProductsFormComponent implements OnInit {
     this._initForm();
     this._getCategories();
     this._checkEditMode();
+    this._getProducts();
   }
 
   private _initForm() {
@@ -74,9 +75,11 @@ export class ProductsFormComponent implements OnInit {
     if (this.editmode) {
       this._updateProduct(productFormData);
       this.router.navigate(['/a/p/product-list']).then();
+      this._getProducts()
     } else {
       this._addProduct(productFormData);
       this.router.navigate(['/a/p/product-list']).then();
+      this._getProducts()
     }
   }
 
@@ -84,10 +87,15 @@ export class ProductsFormComponent implements OnInit {
     this.router.navigate(['/a/p/product-list']);
   }
 
+  private _getProducts() {
+    this.productsService.GetProducts().subscribe((products) => {
+      // @ts-ignore
+      this.products = products;
+    })
+  }
+
   private _getCategories() {
-    this.categoriesService
-      .GetCategories()
-      .subscribe((categories) => {
+    this.categoriesService.GetCategories().subscribe((categories) => {
         // @ts-ignore
         this.catagories = categories;
       });
@@ -115,7 +123,7 @@ export class ProductsFormComponent implements OnInit {
   private _updateProduct(productFormData: FormData) {
     this.route.params.subscribe(params => {
       let id = params['id'];
-      this.productsService.UpdateCategories(productFormData, id).subscribe(() => {
+      this.productsService.UpdateProducts(productFormData, id).subscribe(() => {
           this.messageService.add({
             severity: 'success',
             summary: 'Success',
