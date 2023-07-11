@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
+import { HomeDefalutComponent } from "./components/home-defalut/home-defalut.component";
+import { HomePageComponent } from "./components/home-page/home-page.component";
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
+    component: HomeDefalutComponent,
     children: [
       {
         path: '',
-        component: NavBarComponent
+        component: HomePageComponent
       }
     ]
   }
+
 ];
 
 @NgModule({

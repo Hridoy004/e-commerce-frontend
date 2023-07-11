@@ -8,20 +8,30 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { ButtonModule } from "primeng/button";
 import { CardModule } from "primeng/card";
 import { ToolbarModule } from "primeng/toolbar";
+import { AppAdminModule } from "../app-admin-panel/app-admin.module";
+import { FlexModule } from "@angular/flex-layout";
+import { AppSharedModule } from "../app-shared/app-shared.module";
+import { AppProductsModule } from "../app-products/app-products.module";
+import { HomeDefalutComponent } from './components/home-defalut/home-defalut.component';
 
 
 @NgModule({
   declarations: [
     NavBarComponent,
-    HomePageComponent
+    HomePageComponent,
+    HomeDefalutComponent
   ],
-  imports: [
-    CommonModule,
-    AppLandingRoutingModule,
-    MatSidenavModule,
-    ButtonModule,
-    CardModule,
-    ToolbarModule
-  ]
+    imports: [
+        CommonModule,
+        AppLandingRoutingModule,
+        MatSidenavModule,
+        ButtonModule,
+        CardModule,
+        ToolbarModule,
+        AppAdminModule,
+        FlexModule,
+        AppSharedModule,
+        AppProductsModule
+    ]
 })
 export class AppLandingModule { }

@@ -1,16 +1,19 @@
-<p-card header="Categories" subheader="List of all categories">
-  <div class="p-grid">
-    <div class="p-col-12">
-      <p-toolbar>
-        <div class="p-toolbar-group-left">
-          <p-button
-            styleClass="p-button-success"
-            label="New"
-            icon="pi pi-plus"
-            routerLink="form"
-          ></p-button>
-        </div>
-      </p-toolbar>
+<header>
+  <div class="p-grid" fxLayout="row">
+    <div fxFlex="25">
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="logo" />
+      </div>
+    </div>
+    <div class="p-col-4 search" fxFlex="40">
+      <app-products-search></app-products-search>
+    </div>
+    <div class="p-col-3 p-offset-1 navigation" fxFlex="25">
+      <app-nav></app-nav>
+    </div>
+    <div class="p-col-1 tools" fxFlex="10">
+      <i class="pi pi-user p-text-secondary" style="font-size: 1.5rem"></i>
+      <i class="pi pi-shopping-cart" style="font-size: 1.5rem"></i>
     </div>
   </div>
-</p-card>
+</header>

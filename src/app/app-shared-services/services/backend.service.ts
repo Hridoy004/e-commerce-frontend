@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Authenticate } from "../interfaces/authenticate.interface";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Registration } from "../interfaces/registration.interfaces";
-import { Category } from "../../app-categories/interfaces/category.interface";
+import { Category } from "../../app-admin-categories/interfaces/category.interface";
 import { TokenService } from "./token.service";
 
 const httpOptions = {
@@ -102,5 +102,15 @@ export class BackendService {
     return this.httpClient.get(url, httpOptions);
   }
 
+  GetUsersCount() {
+    let url = `${this.baseUrl}/authentication/user/count/`;
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    return this.httpClient.get(url, httpOptions);
+  }
 
 }

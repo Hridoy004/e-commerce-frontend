@@ -30,38 +30,41 @@ import { UsersComponent } from './components/users/users.component';
 
 
 @NgModule({
-  declarations: [
-    ShellComponent,
-    SidebarComponent,
-    DashboardComponent,
-    FooterComponent,
-    UsersComponent,
-  ],
-  imports: [
-    CommonModule,
-    AppAdminRoutingModule,
-    MatCardModule,
-    FlexModule,
-    MatTableModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatButtonModule,
-    ButtonModule,
-    MatFormFieldModule,
-    AppCustomErrorModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    InputTextModule,
-    MatGridListModule,
-    MatSnackBarModule,
-    MatDialogModule,
-    ToastModule,
-    CardModule,
-    ToolbarModule,
-    TableModule,
-    ConfirmDialogModule,
+    declarations: [
+        ShellComponent,
+        SidebarComponent,
+        DashboardComponent,
+        FooterComponent,
+        UsersComponent,
+    ],
+    exports: [
+        FooterComponent
+    ],
+    imports: [
+        CommonModule,
+        AppAdminRoutingModule,
+        MatCardModule,
+        FlexModule,
+        MatTableModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatButtonModule,
+        ButtonModule,
+        MatFormFieldModule,
+        AppCustomErrorModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        InputTextModule,
+        MatGridListModule,
+        MatSnackBarModule,
+        MatDialogModule,
+        ToastModule,
+        CardModule,
+        ToolbarModule,
+        TableModule,
+        ConfirmDialogModule,
 
-  ]
+    ]
 })
 export class AppAdminModule {
 }

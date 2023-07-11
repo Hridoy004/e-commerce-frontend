@@ -19,15 +19,15 @@ const routes: Routes = [
       },
       {
         path: 'c',
-        loadChildren: () => import('../app-categories/app-categories.module').then(m => m.AppCategoriesModule)
+        loadChildren: () => import('../app-admin-categories/app-categories.module').then(m => m.AppCategoriesModule)
       },
       {
         path: 'p',
-        loadChildren: () => import('../app-product/app-product.module').then(m => m.AppProductModule)
+        loadChildren: () => import('../app-admin-products/app-product.module').then(m => m.AppProductModule)
       },
       {
         path: 'o',
-        loadChildren: () => import('../app-order/app-order.module').then(m => m.AppOrderModule)
+        loadChildren: () => import('../app-admin-orders/app-order.module').then(m => m.AppOrderModule)
       }
     ]
   }

@@ -18,4 +18,7 @@ export class TokenService {
     sessionStorage.setItem(ACCESS_TOKEN, token);
   }
 
+  removeToken() {
+    sessionStorage.removeItem(ACCESS_TOKEN);
+  }
 }
