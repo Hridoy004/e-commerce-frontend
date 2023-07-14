@@ -1,0 +1,8 @@
+<div class="featured-products p-mt-5">
+  <h3 class="featured-prod">Feautured Products</h3>
+  <div fxLayout="row" fxLayoutGap="20">
+    <div class="fe-product" *ngFor="let product of featuredProducts">
+      <app-product-items [product]="product"></app-product-items>
+    </div>
+  </div>
+</div>
