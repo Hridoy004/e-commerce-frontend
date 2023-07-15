@@ -34,6 +34,7 @@ export class OrderDetailsComponent implements OnInit {
           .GetOrderId(params['id'])
           .subscribe((order) => {
             this.order = order;
+            console.log(order);
             // @ts-ignore
             this.selectedStatus = order.status;
           });

@@ -113,4 +113,15 @@ export class BackendService {
     return this.httpClient.get(url, httpOptions);
   }
 
+  FeaturedProducts(count: number) {
+    let url = `${this.baseUrl}/api/v1/categories/featured/${count}`;
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    return this.httpClient.get(url, httpOptions);
+  }
+
 }

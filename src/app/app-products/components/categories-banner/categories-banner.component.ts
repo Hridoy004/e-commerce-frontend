@@ -18,7 +18,7 @@ export class CategoriesBannerComponent implements OnInit {
 
   ngOnInit(): void {
     this.backendService
-      .GetCategories()
+      .FeaturedProducts(6)
       .pipe(takeUntil(this.endSubs$))
       .subscribe((categories) => {
         // @ts-ignore

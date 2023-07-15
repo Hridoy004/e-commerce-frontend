@@ -12,6 +12,11 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { CheckboxModule } from "primeng/checkbox";
 import { FormsModule } from "@angular/forms";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { InputNumberModule } from "primeng/inputnumber";
+import { RatingModule } from "primeng/rating";
+import { RippleModule } from "primeng/ripple";
+import { AppSharedModule } from "../app-shared/app-shared.module";
 
 
 @NgModule({
@@ -20,21 +25,26 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
     CategoriesBannerComponent,
     FeaturedProductsComponent,
     ProductItemsComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductDetailsComponent
   ],
     exports: [
         ProductsSearchComponent,
         CategoriesBannerComponent,
         FeaturedProductsComponent
     ],
-    imports: [
-        CommonModule,
-        AppProductsRoutingModule,
-        FlexModule,
-        ButtonModule,
-        CheckboxModule,
-        FormsModule,
-        MatCheckboxModule
-    ]
+  imports: [
+    CommonModule,
+    AppProductsRoutingModule,
+    FlexModule,
+    ButtonModule,
+    CheckboxModule,
+    FormsModule,
+    MatCheckboxModule,
+    InputNumberModule,
+    RatingModule,
+    RippleModule,
+    AppSharedModule
+  ]
 })
 export class AppProductsModule { }
