@@ -11,6 +11,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppSharedModule } from "../app-shared/app-shared.module";
 import { ConfirmationService, MessageService } from "primeng/api";
+import { CartService } from "../app-shared-services/services/cart.service";
 
 export function startupServiceFactory(startupService: StartupService,
                                       tokenService: TokenService): Function {
@@ -63,4 +64,7 @@ export function startupServiceFactory(startupService: StartupService,
   ]
 })
 export class AppRootModule {
+  constructor(cartService: CartService) {
+    cartService.initCartLocalStorage();
+  }
 }

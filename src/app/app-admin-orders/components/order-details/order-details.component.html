@@ -1,17 +1,17 @@
 <p-toast></p-toast>
 <div class="admin-page" *ngIf="order">
   <p-card [header]="'View Order'" subheader="You can edit order status here">
-    <p-fieldset legend="Order Details" styleClass="p-mb-4" [toggleable]="true">
-      <div class="p-grid" fxLayout="row" fxLayoutAlign="space-between center">
-        <div class="p-col-4">
+    <p-fieldset legend="Order Details" styleClass="mb-4" [toggleable]="true">
+      <div class="grid">
+        <div class="col-4">
           <h5>Order Id</h5>
           <p>{{ order.id }}</p>
         </div>
-        <div class="p-col-4">
+        <div class="col-4">
           <h5>Order Date</h5>
           <p>{{ order.dateOrdered | date: 'short' }}</p>
         </div>
-        <div class="p-col-4">
+        <div class="col-4">
           <h5>Order Status</h5>
           <p-dropdown
             [options]="orderStatuses"
@@ -24,20 +24,20 @@
         </div>
       </div>
       <div>
-        <div class="p-col-4">
+        <div class="col-4">
           <h5>Order Total Price</h5>
           <p>{{ order.totalPrice | currency }}</p>
         </div>
       </div>
     </p-fieldset>
-    <p-fieldset legend="Order Items" styleClass="p-mb-4" [toggleable]="true">
+    <p-fieldset legend="Order Items" styleClass="mb-4" [toggleable]="true">
       <mat-grid-list cols="6" rowHeight="50px">
-        <mat-grid-tile style="justify-content: flex-start !important;" class="p-text-bold">Name</mat-grid-tile>
-        <mat-grid-tile class="p-text-bold">Brand</mat-grid-tile>
-        <mat-grid-tile class="p-text-bold">Category</mat-grid-tile>
-        <mat-grid-tile class="p-text-bold">Price</mat-grid-tile>
-        <mat-grid-tile class="p-text-bold">Quantity</mat-grid-tile>
-        <mat-grid-tile class="p-text-bold">Subtotal</mat-grid-tile>
+        <mat-grid-tile style="justify-content: space-around !important;" class="text-bold">Name</mat-grid-tile>
+        <mat-grid-tile class="text-bold">Brand</mat-grid-tile>
+        <mat-grid-tile class="text-bold">Category</mat-grid-tile>
+        <mat-grid-tile class="text-bold">Price</mat-grid-tile>
+        <mat-grid-tile class="text-bold">Quantity</mat-grid-tile>
+        <mat-grid-tile class="text-bold">Subtotal</mat-grid-tile>
         <div *ngFor="let orderItem of order?.orderItems">
           <mat-grid-tile>{{ orderItem?.product?.name }}</mat-grid-tile>
           <mat-grid-tile>{{ orderItem?.product?.brand }}</mat-grid-tile>
@@ -47,14 +47,14 @@
           <mat-grid-tile>{{ (orderItem?.product?.price || 0) * (orderItem?.quantity || 0) | currency }}</mat-grid-tile>
         </div>
       </mat-grid-list>
-      <div class="p-grid" style="color: green">
-        <div class="p-col-2 p-offset-8 p-text-bold">Total Price</div>
-        <div class="p-col-2 p-text-bold">{{ order.totalPrice | currency }}</div>
+      <div class="grid" style="color: green">
+        <div class="col-2 offset-8 text-bold">Total Price</div>
+        <div class="col-2 text-bold">{{ order.totalPrice | currency }}</div>
       </div>
     </p-fieldset>
-    <p-fieldset legend="Order Address" styleClass="p-mb-4" [toggleable]="true">
-      <div class="p-grid" fxLayout="row" fxLayoutAlign="space-between center">
-        <div class="p-col-4">
+    <p-fieldset legend="Order Address" styleClass="mb-4" [toggleable]="true">
+      <div class="grid">
+        <div class="col-4">
           <h5>Order Address</h5>
           <p>
             {{ order.shippingAddress1 }}<br/>
@@ -63,11 +63,11 @@
             {{ order.country }}
           </p>
         </div>
-        <div class="p-col-4">
+        <div class="col-4">
           <h5>Customer Info</h5>
           <p>{{ order.user.Email }}</p>
         </div>
-        <div class="p-col-4">
+        <div class="col-4">
           <h5>Contact Info</h5>
           <p>{{ order.phone }}</p>
         </div>

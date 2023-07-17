@@ -1,10 +1,10 @@
 <p-toast></p-toast>
 <div class="admin-page">
   <p-card header="Products" subheader="List of all products">
-    <div class="p-grid">
-      <div class="p-col-12">
+    <div class="grid">
+      <div class="col-12">
         <p-toolbar>
-          <div class="p-toolbar-group-left">
+          <div class="toolbar-group-left">
             <p-button
               styleClass="p-button-success"
               label="New"
@@ -15,13 +15,13 @@
         </p-toolbar>
       </div>
     </div>
-    <div class="p-grid">
-      <div class="p-col-12">
+    <div class="grid">
+      <div class="col-12">
         <p-table
           [paginator]="true"
           [rows]="10"
           [value]="products"
-          styleClass="p-datatable-gridlines"
+          styleClass="datatable-gridlines"
           [globalFilterFields]="['name']"
         >
           <ng-template pTemplate="header">
@@ -29,20 +29,20 @@
               <th pSortableColumn="name">Name
                 <p-sortIcon field="name"></p-sortIcon>
               </th>
-              <th>Image</th>
+              <th class="col-2">Image</th>
               <th pSortableColumn="price">Price
                 <p-sortIcon field="price"></p-sortIcon>
               </th>
-              <th pSortableColumn="stock">Stock
-                <p-sortIcon field="stock"></p-sortIcon>
+              <th pSortableColumn="countInStock">Stock
+                <p-sortIcon field="countInStock"></p-sortIcon>
               </th>
               <th pSortableColumn="category">
                 Category
                 <p-sortIcon field="category"></p-sortIcon>
               </th>
-              <th pSortableColumn="created">
+              <th pSortableColumn="dateCreated">
                 Created at
-                <p-sortIcon field="created"></p-sortIcon>
+                <p-sortIcon field="dateCreated"></p-sortIcon>
               </th>
               <th></th>
             </tr>
@@ -58,7 +58,7 @@
               <td>
                 <p-button
                   (click)="deleteProduct(product.id)"
-                  styleClass="p-button-danger p-mr-2"
+                  styleClass="p-button-danger mr-2"
                   icon="pi pi-trash"
                 ></p-button>
                 <p-button

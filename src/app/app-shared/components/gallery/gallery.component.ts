@@ -12,7 +12,6 @@ export class GalleryComponent implements OnInit {
   @Input() images: string[] | undefined;
 
   constructor() {
-
   }
 
   ngOnInit(): void {
