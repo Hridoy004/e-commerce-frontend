@@ -13,6 +13,7 @@ import { FlexModule } from "@angular/flex-layout";
 import { AppSharedModule } from "../app-shared/app-shared.module";
 import { AppProductsModule } from "../app-products/app-products.module";
 import { HomeDefalutComponent } from './components/home-defalut/home-defalut.component';
+import { AppOrderModule } from "../app-order/app-order.module";
 
 
 @NgModule({
@@ -21,17 +22,18 @@ import { HomeDefalutComponent } from './components/home-defalut/home-defalut.com
     HomePageComponent,
     HomeDefalutComponent
   ],
-    imports: [
-        CommonModule,
-        AppLandingRoutingModule,
-        MatSidenavModule,
-        ButtonModule,
-        CardModule,
-        ToolbarModule,
-        AppAdminModule,
-        FlexModule,
-        AppSharedModule,
-        AppProductsModule
-    ]
+  imports: [
+    CommonModule,
+    AppLandingRoutingModule,
+    MatSidenavModule,
+    ButtonModule,
+    CardModule,
+    ToolbarModule,
+    AppAdminModule,
+    FlexModule,
+    AppSharedModule,
+    AppProductsModule,
+    AppOrderModule
+  ]
 })
 export class AppLandingModule { }

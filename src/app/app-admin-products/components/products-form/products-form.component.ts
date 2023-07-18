@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { Subject } from "rxjs";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Product } from "../../interfaces/products.interfaces";
 import { ProductsService } from "../../services/products.service";
 import { MessageService } from "primeng/api";

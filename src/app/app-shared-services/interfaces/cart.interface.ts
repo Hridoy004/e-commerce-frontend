@@ -3,6 +3,11 @@ export interface Cart {
 }
 
 export interface CartItem {
-  prodctId?: string;
+  productId?: string;
+  quantity?: number;
+}
+
+export interface CartItemDetailed {
+  product?: any;
   quantity?: number;
 }

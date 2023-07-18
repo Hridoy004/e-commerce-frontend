@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from "../../../app-admin-products/interfaces/products.interfaces";
 import { CartService } from "../../../app-shared-services/services/cart.service";
 import { CartItem } from "../../../app-shared-services/interfaces/cart.interface";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: 'app-product-items',
@@ -12,7 +13,8 @@ export class ProductItemsComponent implements OnInit {
   // @ts-ignore
   @Input() product: Product;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,
+              private messageService: MessageService) {
 
   }
 
@@ -20,12 +22,18 @@ export class ProductItemsComponent implements OnInit {
   }
 
   addProductToCart() {
-    console.log("cart")
     const cartItem: CartItem = {
-      prodctId: this.product.id,
+      productId: this.product.id,
       quantity: 1
     }
-    this.cartService.setCartItem(cartItem);
+    let v = this.cartService.setCartItem(cartItem);
+    console.log(v, "setcart");
+
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: `Cart Updated!`
+    });
   }
 
 }

@@ -4,6 +4,8 @@ import { ActivatedRoute } from "@angular/router";
 import { Product } from 'src/app/app-admin-products/interfaces/products.interfaces';
 import { Subject, takeUntil } from "rxjs";
 import { ProductsService } from "../../../app-admin-products/services/products.service";
+import { CartItem } from "../../../app-shared-services/interfaces/cart.interface";
+import { CartService } from "../../../app-shared-services/services/cart.service";
 
 @Component({
   selector: 'app-product-details',
@@ -17,6 +19,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   quantity = 1;
 
   constructor(private productService: ProductsService,
+              private cartService: CartService,
               private route: ActivatedRoute) {
   }
 
@@ -46,7 +49,12 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   }
 
   addProductToCart() {
+    const cartItem: CartItem = {
+      productId: this.product.id,
+      quantity: this.quantity
+    };
 
+    this.cartService.setCartItem(cartItem);
   }
 
 }

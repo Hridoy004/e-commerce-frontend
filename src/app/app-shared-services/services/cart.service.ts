@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Cart, CartItem } from "../interfaces/cart.interface";
+import { BehaviorSubject } from "rxjs";
 
 export const CART_KEY = "cart";
 
@@ -7,6 +8,7 @@ export const CART_KEY = "cart";
   providedIn: 'root'
 })
 export class CartService {
+  cart$: BehaviorSubject<Cart> = new BehaviorSubject(this.getCart());
 
   constructor() {
   }
@@ -19,6 +21,8 @@ export class CartService {
       };
       const intialCartJson = JSON.stringify(intialCart);
       localStorage.setItem(CART_KEY, intialCartJson);
+    } else {
+      this.cart$.next(cart);
     }
   }
 
@@ -29,26 +33,36 @@ export class CartService {
     return cart;
   }
 
-  setCartItem(cartItem: CartItem): Cart {
+  setCartItem(cartItem: CartItem, updateCartItem?: boolean): Cart {
     const cart = this.getCart();
-    // @ts-ignore
-    const cartItemExist = cart.items.find((item) => item.prodctId === cartItem.prodctId);
+    const cartItemExist = cart.items?.find((item) => item.productId === cartItem.productId);
     if (cartItemExist) {
-      // @ts-ignore
       cart.items?.map((item) => {
-        if (item.prodctId === cartItem.prodctId) {
-          // @ts-ignore
-          item.quantity = item.quantity + cartItem.quantity;
-          return item;
+        if (item.productId === cartItem.productId) {
+          if (updateCartItem) {
+            item.quantity = cartItem.quantity;
+          } else {
+            item.quantity = item.quantity! + cartItem.quantity!;
+          }
         }
+        return item; // Add the return statement here
       });
     } else {
       cart.items?.push(cartItem);
     }
+
     const cartJson = JSON.stringify(cart);
     localStorage.setItem(CART_KEY, cartJson);
+    this.cart$.next(cart);
     return cart;
   }
 
-
+  deleteCartItem(productId: string) {
+    const cart = this.getCart();
+    const newCart = cart.items?.filter((item) => item.productId !== productId);
+    cart.items = newCart;
+    const cartJsonString = JSON.stringify(cart);
+    localStorage.setItem(CART_KEY, cartJsonString);
+    this.cart$.next(cart);
+  }
 }

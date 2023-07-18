@@ -17,6 +17,7 @@ import { InputNumberModule } from "primeng/inputnumber";
 import { RatingModule } from "primeng/rating";
 import { RippleModule } from "primeng/ripple";
 import { AppSharedModule } from "../app-shared/app-shared.module";
+import { ToastModule } from "primeng/toast";
 
 
 @NgModule({
@@ -33,18 +34,19 @@ import { AppSharedModule } from "../app-shared/app-shared.module";
         CategoriesBannerComponent,
         FeaturedProductsComponent
     ],
-  imports: [
-    CommonModule,
-    AppProductsRoutingModule,
-    FlexModule,
-    ButtonModule,
-    CheckboxModule,
-    FormsModule,
-    MatCheckboxModule,
-    InputNumberModule,
-    RatingModule,
-    RippleModule,
-    AppSharedModule
-  ]
+    imports: [
+        CommonModule,
+        AppProductsRoutingModule,
+        FlexModule,
+        ButtonModule,
+        CheckboxModule,
+        FormsModule,
+        MatCheckboxModule,
+        InputNumberModule,
+        RatingModule,
+        RippleModule,
+        AppSharedModule,
+        ToastModule
+    ]
 })
 export class AppProductsModule { }

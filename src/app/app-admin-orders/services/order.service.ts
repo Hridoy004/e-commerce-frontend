@@ -84,4 +84,16 @@ export class OrderService {
     };
     return this.httpClient.get(url, httpOptions);
   }
+
+  GetProductsId(productId: string) {
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    let url = `${this.baseUrl}/Api/Products/${productId}`;
+    return this.httpClient.get(url, httpOptions);
+  }
+
 }
