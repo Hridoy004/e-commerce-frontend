@@ -26,6 +26,15 @@ export class CartService {
     }
   }
 
+  emptyCart() {
+    const intialCart = {
+      items: []
+    };
+    const intialCartJson = JSON.stringify(intialCart);
+    localStorage.setItem(CART_KEY, intialCartJson);
+    this.cart$.next(intialCart);
+  }
+
   getCart(): Cart {
     // @ts-ignore
     const cartJsonString: string = localStorage.getItem(CART_KEY);
@@ -33,10 +42,35 @@ export class CartService {
     return cart;
   }
 
+  /*  setCartItem(cartItem: CartItem, updateCartItem?: boolean): Cart {
+      const cart = this.getCart();
+      const cartItemExist = cart.items?.find((item) => item.productId === cartItem.productId);
+      if (cartItemExist) {
+        cart.items?.map((item) => {
+          if (item.productId === cartItem.productId) {
+            if (updateCartItem) {
+              item.quantity = cartItem.quantity;
+            } else {
+              item.quantity = item.quantity! + cartItem.quantity!;
+            }
+          }
+          return item; // Add the return statement here
+        });
+      } else {
+        cart.items?.push(cartItem);
+      }
+
+      const cartJson = JSON.stringify(cart);
+      localStorage.setItem(CART_KEY, cartJson);
+      this.cart$.next(cart);
+      return cart;
+    }*/
+
   setCartItem(cartItem: CartItem, updateCartItem?: boolean): Cart {
     const cart = this.getCart();
     const cartItemExist = cart.items?.find((item) => item.productId === cartItem.productId);
     if (cartItemExist) {
+      // @ts-ignore
       cart.items?.map((item) => {
         if (item.productId === cartItem.productId) {
           if (updateCartItem) {
@@ -44,8 +78,9 @@ export class CartService {
           } else {
             item.quantity = item.quantity! + cartItem.quantity!;
           }
+
+          return item;
         }
-        return item; // Add the return statement here
       });
     } else {
       cart.items?.push(cartItem);
@@ -56,6 +91,7 @@ export class CartService {
     this.cart$.next(cart);
     return cart;
   }
+
 
   deleteCartItem(productId: string) {
     const cart = this.getCart();

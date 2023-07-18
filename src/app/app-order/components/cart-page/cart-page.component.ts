@@ -37,7 +37,6 @@ export class CartPageComponent implements OnInit, OnDestroy {
       respCart.items?.forEach(cartItem => {
         // @ts-ignore
         this.ordersService.GetProductsId(cartItem.productId).subscribe((response) => {
-          console.log(cartItem, "value cartd")
           this.cartItemsDetailed.push({
             product: response,
             quantity: cartItem.quantity
@@ -58,14 +57,13 @@ export class CartPageComponent implements OnInit, OnDestroy {
   }
 
   updateCartItemQuantity(event: any, cartItem: CartItemDetailed) {
-    /* this.cartService.setCartItem(
-       {
-         productId: cartItem.product.id,
-         quantity: event.value
-       },
-       // @ts-ignore
-       true
-     );*/
+    this.cartService.setCartItem(
+      {
+        productId: cartItem.product.id,
+        quantity: event.value
+      },
+      true
+    )
   }
 
 }

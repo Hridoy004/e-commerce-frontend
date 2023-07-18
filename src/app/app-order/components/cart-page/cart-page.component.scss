@@ -1,9 +1,11 @@
 .cart-page {
   min-height: 500px;
+
   button {
     background-color: #ff3a00;
     border: 0;
   }
+
   .cart {
     &-shipping {
       color: var(--green-700);
@@ -41,10 +43,17 @@
 
       &-subtotal {
         font-weight: 600;
+
         &-value {
           color: var(--green-600);
         }
       }
     }
   }
+}
+
+.p-button:enabled:hover {
+  background: #b42b03 !important;
+  color: #ffffff;
+  border-color: #0d89ec;
 }

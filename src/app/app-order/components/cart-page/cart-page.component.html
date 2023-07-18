@@ -23,7 +23,11 @@
             <div class="cart-item-name">{{ cartItem.product.name }}</div>
             <div class="cart-item-price">{{ cartItem.product.price | currency: '৳' }}</div>
             <div class="cart-item-remove">
-              <p-button icon="pi pi-trash" (onClick)="deleteCartItem(cartItem)"></p-button>
+              <p-button
+                styleClass="p-button-danger"
+                icon="pi pi-trash"
+                (onClick)="deleteCartItem(cartItem)"
+              ></p-button>
             </div>
           </div>
           <div class="col-3">
@@ -50,7 +54,7 @@
       </div>
     </div>
     <div class="col-4">
-fgdg
+      <app-order-summary></app-order-summary>
     </div>
   </div>
 </div>
