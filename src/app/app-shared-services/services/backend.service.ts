@@ -59,6 +59,18 @@ export class BackendService {
     return this.httpClient.delete(url, httpOptions);
   }
 
+  GetUserId(userId: string) {
+    console.log("user profile", userId);
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    const url = `${this.baseUrl}/Authentication/User/${userId}`;
+    return this.httpClient.get(url, httpOptions);
+  }
+
   GetCategories() {
     let url = `${this.baseUrl}/Api/V1/Categories/`;
     return this.httpClient.get(url, httpOptions);
@@ -124,4 +136,14 @@ export class BackendService {
     return this.httpClient.get(url, httpOptions);
   }
 
+  Profile() {
+    let url = `${this.baseUrl}/user/profile/`;
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    return this.httpClient.get(url, httpOptions);
+  }
 }

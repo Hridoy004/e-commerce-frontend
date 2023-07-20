@@ -26,9 +26,7 @@ export class ProductItemsComponent implements OnInit {
       productId: this.product.id,
       quantity: 1
     }
-    let v = this.cartService.setCartItem(cartItem);
-    console.log(v, "setcart");
-
+    this.cartService.setCartItem(cartItem);
     this.messageService.add({
       severity: 'success',
       summary: 'Success',

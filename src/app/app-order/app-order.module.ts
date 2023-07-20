@@ -7,11 +7,13 @@ import { BadgeModule } from "primeng/badge";
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { ButtonModule } from "primeng/button";
 import { InputNumberModule } from "primeng/inputnumber";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
-import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
 import { ThankYouComponent } from './components/thank-you/thank-you.component';
 import { MatButtonModule } from "@angular/material/button";
+import { InputTextModule } from "primeng/inputtext";
+import { InputMaskModule } from "primeng/inputmask";
+import { DropdownModule } from "primeng/dropdown";
 
 
 @NgModule({
@@ -19,20 +21,24 @@ import { MatButtonModule } from "@angular/material/button";
         CartIconComponent,
         CartPageComponent,
         OrderSummaryComponent,
-        CheckoutPageComponent,
         ThankYouComponent
     ],
     exports: [
-        CartIconComponent
+        CartIconComponent,
+        OrderSummaryComponent
     ],
-    imports: [
-        CommonModule,
-        AppOrderRoutingModule,
-        BadgeModule,
-        ButtonModule,
-        InputNumberModule,
-        FormsModule,
-        MatButtonModule,
-    ]
+  imports: [
+    CommonModule,
+    AppOrderRoutingModule,
+    BadgeModule,
+    ButtonModule,
+    InputNumberModule,
+    FormsModule,
+    MatButtonModule,
+    InputTextModule,
+    InputMaskModule,
+    DropdownModule,
+    ReactiveFormsModule,
+  ]
 })
 export class AppOrderModule { }

@@ -9,7 +9,7 @@ export interface Order {
   zip?: string;
   country?: string;
   phone?: string;
-  status?: number;
+  status?: String;
   totalPrice?: string;
   user?: any;
   dateOrdered?: string;

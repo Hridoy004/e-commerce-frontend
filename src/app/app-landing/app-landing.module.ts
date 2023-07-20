@@ -14,13 +14,19 @@ import { AppSharedModule } from "../app-shared/app-shared.module";
 import { AppProductsModule } from "../app-products/app-products.module";
 import { HomeDefalutComponent } from './components/home-defalut/home-defalut.component';
 import { AppOrderModule } from "../app-order/app-order.module";
+import { CheckoutComponent } from '../app-order/components/checkout/checkout.component';
+import { InputTextModule } from "primeng/inputtext";
+import { ReactiveFormsModule } from "@angular/forms";
+import { InputMaskModule } from "primeng/inputmask";
+import { DropdownModule } from "primeng/dropdown";
 
 
 @NgModule({
   declarations: [
     NavBarComponent,
     HomePageComponent,
-    HomeDefalutComponent
+    HomeDefalutComponent,
+    CheckoutComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +39,11 @@ import { AppOrderModule } from "../app-order/app-order.module";
     FlexModule,
     AppSharedModule,
     AppProductsModule,
-    AppOrderModule
+    AppOrderModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    InputMaskModule,
+    DropdownModule
   ]
 })
 export class AppLandingModule { }

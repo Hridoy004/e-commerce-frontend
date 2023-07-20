@@ -40,7 +40,6 @@ export class UsersComponent implements OnInit {
   private _getCategories() {
     this.backendService.GetUser().subscribe((response: any) => {
       this.users = response;
-      console.log("user", response);
     });
   }
 }

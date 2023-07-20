@@ -1,1 +1,12 @@
-<p>settings-account works!</p>
+<div class="margin-top-20">
+  <form [formGroup]="categoriesForm" (ngSubmit)="onFormSubmit()">
+    <div class="margin-bottom-16 avenue-form-field">
+      <label class="avenue-label">Email</label>
+      <input type="text" class="avenue-input" formControlName="Email" pInputText/>
+    </div>
+    <div class="margin-bottom-16 avenue-form-field">
+      <label class="avenue-label">Id</label>
+      <input type="text" class="avenue-input" formControlName="Id" pInputText/>
+    </div>
+  </form>
+</div>
