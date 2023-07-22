@@ -9,6 +9,7 @@ import { Subject } from "rxjs";
 import { Order } from "../../../app-admin-orders/interfaces/order.interface";
 import { Cart } from "../../../app-shared-services/interfaces/cart.interface";
 import { User } from "../../../app-shared-services/interfaces/user.interface";
+import { StripeService } from "ngx-stripe";
 
 
 @Component({
@@ -23,7 +24,8 @@ export class CheckoutComponent implements OnInit {
               private formBuilder: FormBuilder,
               private cartService: CartService,
               private ordersService: OrderService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private stripeService: StripeService) {
   }
 
   // @ts-ignore
@@ -89,7 +91,6 @@ export class CheckoutComponent implements OnInit {
       return;
     }
 
-
     const order: Order = {
       orderItems: this.orderItems,
       shippingAddress1: this.checkoutForm['street'].value,
@@ -103,16 +104,13 @@ export class CheckoutComponent implements OnInit {
       dateOrdered: `${Date.now()}`
     };
 
-    this.ordersService.CreateOrder(order).subscribe(
-      () => {
-        //redirect to thank you page // payment
-        this.cartService.emptyCart();
-        this.router.navigate(['/success']);
-      },
-      () => {
-        //display some message to user
+    this.ordersService.CacheOrderData(order);
+
+    this.ordersService.CreateCheckoutSession(this.orderItems).subscribe((error) => {
+      if (error) {
+        console.log("error in redirect to payment");
       }
-    );
+    })
   }
 
   get checkoutForm() {
