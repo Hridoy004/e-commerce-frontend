@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendService } from "../../../app-shared-services/services/backend.service";
-import { User } from "../../../app-shared-services/interfaces/user.interface";
-import { Order } from "../../../app-admin-orders/interfaces/order.interface";
-import { OrderService } from "../../../app-admin-orders/services/order.service";
-import { MessageService } from "primeng/api";
-import { ActivatedRoute } from "@angular/router";
+import { OrderService } from "../../services/order.service";
+import { CartService } from "../../../app-shared-services/services/cart.service";
 
 @Component({
   selector: 'app-thank-you',
@@ -13,34 +9,18 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ThankYouComponent implements OnInit {
 
-  // @ts-ignore
-  order: Order;
-  orderStatuses = [];
-  selectedStatus: any;
 
   constructor(private orderService: OrderService,
-              private messageService: MessageService,
-              private route: ActivatedRoute) {
-
+              private cartService: CartService) {
   }
 
-  ngOnInit(): void {
-    this._getOrder();
+  ngOnInit() {
+    const orderData = this.orderService.GetCachedOrderData();
+
+    this.orderService.CreateOrder(orderData).subscribe((response) => {
+      this.cartService.emptyCart();
+      this.orderService.RemoveCachedOrderData();
+    })
   }
-
-  private _getOrder() {
-    this.route.params.subscribe((params) => {
-      if (params['id']) {
-        this.orderService
-          .GetOrderId(params['id'])
-          .subscribe((order) => {
-            this.order = order;
-            console.log(order);
-
-          });
-      }
-    });
-  }
-
 
 }

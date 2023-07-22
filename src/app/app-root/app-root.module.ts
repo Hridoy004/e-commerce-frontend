@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppSharedModule } from "../app-shared/app-shared.module";
 import { ConfirmationService, MessageService } from "primeng/api";
 import { CartService } from "../app-shared-services/services/cart.service";
+import { NgxStripeModule } from "ngx-stripe";
 
 export function startupServiceFactory(startupService: StartupService,
                                       tokenService: TokenService): Function {
@@ -60,7 +61,8 @@ export function startupServiceFactory(startupService: StartupService,
     HttpClientModule,
     AppRootRoutingModule,
     BrowserAnimationsModule,
-    AppSharedModule
+    AppSharedModule,
+    NgxStripeModule.forRoot('pk_test_51NWMUuE4Ic1YAnIMSZqupHophTPw1jsfIjai2Q41vu3TK8OCNhgmiWTpwrdmUFJSmnlTETn6zjnSx5kTEKIh1Hhl00YDZu3Yv0'),
   ]
 })
 export class AppRootModule {
