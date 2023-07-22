@@ -1,5 +1,6 @@
 header {
   margin-bottom: 25px;
+
   .logo {
     img {
       width: 70px;
@@ -20,5 +21,9 @@ header {
     .pi {
       margin-right: 20px;
     }
+  }
+
+  .icons {
+    cursor: pointer;
   }
 }

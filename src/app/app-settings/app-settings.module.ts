@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { AppCustomErrorModule } from "../app-custom-error/app-custom-error.module";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { InputTextModule } from "primeng/inputtext";
+import { MatCardModule } from "@angular/material/card";
 
 
 @NgModule({
@@ -17,15 +18,16 @@ import { InputTextModule } from "primeng/inputtext";
     SettingsAccountComponent,
     SettingsDefaultComponent
   ],
-    imports: [
-        CommonModule,
-        AppSettingsRoutingModule,
-        CardModule,
-        TableModule,
-        ReactiveFormsModule,
-        AppCustomErrorModule,
-        MatFormFieldModule,
-        InputTextModule
-    ]
+  imports: [
+    CommonModule,
+    AppSettingsRoutingModule,
+    CardModule,
+    TableModule,
+    ReactiveFormsModule,
+    AppCustomErrorModule,
+    MatFormFieldModule,
+    InputTextModule,
+    MatCardModule
+  ]
 })
 export class AppSettingsModule { }
