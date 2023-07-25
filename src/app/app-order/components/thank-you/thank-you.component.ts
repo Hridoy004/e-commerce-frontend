@@ -20,7 +20,7 @@ export class ThankYouComponent implements OnInit {
     this.orderService.CreateOrder(orderData).subscribe((response) => {
       this.cartService.emptyCart();
       this.orderService.RemoveCachedOrderData();
-    })
-  }
+    });
+  };
 
 }

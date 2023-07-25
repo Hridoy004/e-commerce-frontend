@@ -1,0 +1,36 @@
+.contact-info-wrapper {
+  .container{
+    width: 62%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .container::before{
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: 2px;
+    right: -15px;
+    top: 50%;
+  }
+  .container .details{
+    margin: 14px;
+    text-align: center;
+  }
+  .container .details i{
+    font-size: 30px;
+    color: var(--green-700);
+    margin-bottom: 10px;
+  }
+  .container .details .topic{
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .container .details .text-one,
+  .container .details .text-two{
+    font-size: 14px;
+    color: #afafb6;
+  }
+}

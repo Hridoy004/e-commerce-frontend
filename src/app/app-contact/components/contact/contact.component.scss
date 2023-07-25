@@ -1,0 +1,39 @@
+.contact-wrapper {
+  min-height: 451px;
+
+  button {
+    background-color: #ff3a00;
+    border: 0;
+  }
+
+  .field-width {
+    width: 100%;
+  }
+
+  .cart-shipping {
+    color: var(--green-700);
+  }
+
+  .contact-divider {
+    margin-left: 140px;
+    margin-top: 110px;
+    height: 288px;
+  }
+
+  .contact-button {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    width: 100%;
+    height: 44px;
+    background-color: #3f51b5;
+    color: #ffffff;
+    font-weight: 400;
+    margin-top: 8px;
+  }
+
+  .margin-top-40 {
+    margin-top: 40px;
+  }
+}
+
+

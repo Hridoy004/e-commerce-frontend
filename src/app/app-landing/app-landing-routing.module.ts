@@ -44,6 +44,10 @@ const routes: Routes = [
       {
         path: 'profile',
         loadChildren: () => import('../app-settings/app-settings.module').then(m => m.AppSettingsModule)
+      },
+      {
+        path: 'contact',
+        loadChildren: () => import('../app-contact/app-contact.module').then(m => m.AppContactModule)
       }
     ]
   }
