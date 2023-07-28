@@ -6,6 +6,7 @@ import { RouterModule } from "@angular/router";
 import { ButtonModule } from "primeng/button";
 import { FlexModule } from "@angular/flex-layout";
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { FilterPipe } from './components/filter/filter.pipe';
 
 
 @NgModule({
@@ -13,13 +14,15 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 
     BannerComponent,
          NavComponent,
-         GalleryComponent
+         GalleryComponent,
+         FilterPipe
   ],
-    exports: [
-        NavComponent,
-        BannerComponent,
-        GalleryComponent
-    ],
+  exports: [
+    NavComponent,
+    BannerComponent,
+    GalleryComponent,
+    FilterPipe
+  ],
   imports: [
     CommonModule,
     RouterModule,

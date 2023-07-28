@@ -13,10 +13,10 @@
       </div>
     </div>
     <div [ngClass]="{ 'col-9': !isCategoryPage, 'col-12 margin-left-10': isCategoryPage }">
-      <div class="grid" fxLayoutGap="25" *ngIf="products">
+      <div class="grid" fxLayoutGap="20" *ngIf="products">
         <div
           class="product"
-          *ngFor="let product of products"
+          *ngFor="let product of products | filter: searchKey: 'name'"
         >
           <app-product-items [product]="product"></app-product-items>
         </div>

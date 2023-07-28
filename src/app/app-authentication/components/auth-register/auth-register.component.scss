@@ -7,26 +7,26 @@
   background-repeat: no-repeat;
 
   .auth-registration-container {
-    width: 620px;
+    width: 600px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
     .card {
-      padding: 32px;
+      padding: 26px;
       //background-color: #cfd2d5;
     }
 
-    .logo {
+    .regi-logo {
 
       text-align: center;
 
       img {
         display: block;
         margin: 0 auto;
-        height: 80px;
-        width: 80px;
+        height: 50px;
+        width: 50px;
       }
 
       .title {
@@ -38,9 +38,26 @@
         font-size: 12px;
         margin: 0;
       }
-
     }
-
   }
 
+  .sign-in-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    color: #667085;
+    margin-top: 10px !important;
+
+    p {
+      margin-bottom: 0px !important;
+    }
+  }
+
+  .sign-in-link {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: #3DB08D;
+  }
 }

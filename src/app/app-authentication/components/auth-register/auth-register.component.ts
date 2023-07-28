@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {BackendService} from "../../../app-shared-services/services/backend.service";
-import {TokenService} from "../../../app-shared-services/services/token.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {Router} from "@angular/router";
-
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { BackendService } from "../../../app-shared-services/services/backend.service";
+import { TokenService } from "../../../app-shared-services/services/token.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -36,20 +35,25 @@ export class AuthRegisterComponent implements OnInit {
     const data: any = this.authenticationForm.getRawValue();
     console.log(data);
     this.backendService.Registration(data).subscribe((response: any) => {
-      if(response.Success) {
-       /* const token = response.Token;
-        this.tokenService.setToken(token);*/
+      if (response.Success) {
+        /* const token = response.Token;
+         this.tokenService.setToken(token);*/
         this.matSnackbar.open('Registration successfully, Please cheack your mail', undefined, {
           duration: 3000
         });
+        this.router.navigate(['/auth/login']).then();
       }
     }, (errorResponse: any) => {
       let errorMessage = errorResponse?.error?.Message;
-      if(errorMessage) {
+      if (errorMessage) {
         this.matSnackbar.open(errorMessage, undefined, {
           duration: 3000
         })
       }
     })
+  }
+
+  login() {
+    this.router.navigate(['/auth/login']).then();
   }
 }

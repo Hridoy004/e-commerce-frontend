@@ -4,6 +4,7 @@ import { Category } from "../../../app-admin-categories/interfaces/category.inte
 import { BackendService } from "../../../app-shared-services/services/backend.service";
 import { ActivatedRoute } from "@angular/router";
 import { ProductService } from "../../services/product.service";
+import { ProductsService } from "../../../app-admin-products/services/products.service";
 
 @Component({
   selector: 'app-product-list',
@@ -21,6 +22,7 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private backendService: BackendService,
+    private prodService: ProductsService,
     private route: ActivatedRoute
   ) {}
 
@@ -30,6 +32,9 @@ export class ProductListComponent implements OnInit {
       params["categoryid"] ? (this.isCategoryPage = true) : (this.isCategoryPage = false);
     });
     this._getCategories();
+    this.prodService.search.subscribe(val => {
+      this.searchKey = val;
+    })
   }
 
   private _getCategories() {
@@ -53,5 +58,7 @@ export class ProductListComponent implements OnInit {
       this.products = response;
     })
   }
+
+  searchKey: string = '';
 
 }

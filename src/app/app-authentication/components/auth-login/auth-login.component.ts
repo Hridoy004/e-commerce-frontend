@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {BackendService} from "../../../app-shared-services/services/backend.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {TokenService} from "../../../app-shared-services/services/token.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {Router} from "@angular/router";
+import { BackendService } from "../../../app-shared-services/services/backend.service";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { TokenService } from "../../../app-shared-services/services/token.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-auth-login',
@@ -31,7 +31,7 @@ export class AuthLoginComponent implements OnInit {
   onSubmitForm() {
     const data: any = this.authenticationForm.getRawValue();
     this.backendService.Authenticate(data).subscribe((response: any) => {
-      if(response.Success) {
+      if (response.Success) {
         const token = response.Token;
         this.tokenService.setToken(token);
         this.matSnackbar.open('Login success', undefined, {
@@ -41,11 +41,15 @@ export class AuthLoginComponent implements OnInit {
       }
     }, (errorResponse: any) => {
       let errorMessage = errorResponse?.error?.Message;
-      if(errorMessage) {
+      if (errorMessage) {
         this.matSnackbar.open(errorMessage, undefined, {
           duration: 3000
         })
       }
     })
+  }
+
+  singup() {
+    this.router.navigate(['/auth/register']).then();
   }
 }

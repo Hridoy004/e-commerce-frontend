@@ -1,5 +1,5 @@
 .cart-page {
-  min-height: 451px;
+  min-height: 378px;
 
   button {
     background-color: #ff3a00;
@@ -27,21 +27,22 @@
       &-name {
         font-weight: 600;
         font-size: 1.2em;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
       }
 
       &-price {
         font-weight: 600;
         font-size: 1.2em;
-        margin-bottom: 15px;
+        margin-bottom: 11px;
         color: #ff3a00;
       }
 
       &-quantity {
-        margin: 15px 0;
+        margin: 20px;
       }
 
       &-subtotal {
+        margin-left: 20px;
         font-weight: 600;
 
         &-value {

@@ -4,7 +4,7 @@
     type="text"
     placeholder="Find products"
     class="products-search-input"
-    name="search"
-    id="search"
+    [(ngModel)]="searchTerm"
+    (keyup)="search($event)"
   />
 </div>

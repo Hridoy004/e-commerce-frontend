@@ -11,6 +11,7 @@ import { AppCustomErrorModule } from "../app-custom-error/app-custom-error.modul
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { InputTextModule } from "primeng/inputtext";
 import { MatCardModule } from "@angular/material/card";
+import { FlexModule } from "@angular/flex-layout";
 
 
 @NgModule({
@@ -18,16 +19,17 @@ import { MatCardModule } from "@angular/material/card";
     SettingsAccountComponent,
     SettingsDefaultComponent
   ],
-  imports: [
-    CommonModule,
-    AppSettingsRoutingModule,
-    CardModule,
-    TableModule,
-    ReactiveFormsModule,
-    AppCustomErrorModule,
-    MatFormFieldModule,
-    InputTextModule,
-    MatCardModule
-  ]
+    imports: [
+        CommonModule,
+        AppSettingsRoutingModule,
+        CardModule,
+        TableModule,
+        ReactiveFormsModule,
+        AppCustomErrorModule,
+        MatFormFieldModule,
+        InputTextModule,
+        MatCardModule,
+        FlexModule
+    ]
 })
 export class AppSettingsModule { }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { TokenService } from "../../app-shared-services/services/token.service";
+import { BehaviorSubject } from "rxjs";
 
 
 const httpOptions = {
@@ -12,6 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProductsService {
+  public search = new BehaviorSubject<string>("");
 
   private baseUrl = 'http://localhost:3000';
 

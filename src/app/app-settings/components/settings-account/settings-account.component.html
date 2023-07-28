@@ -1,8 +1,14 @@
 <div class="profile-wrapper" *ngIf="user">
   <mat-card class="profile-cart">
-    <h4> Name: {{user.User.FirstName}} {{user.User.LastName}}</h4>
-    <p>Email: {{user.User.Email}}</p>
-    <p>Roles: {{user.User.Roles}}</p>
+    <div class="profile-align">
+      <img class="profile-image" width={60} height={60} src="assets/img/avatar.png">
+      <div class="margin-top-16">
+        <h4> {{user.User.FirstName}} {{user.User.LastName}}</h4>
+        <p>User Id: {{user.User.UserId}}</p>
+        <p>Email: {{user.User.Email}}</p>
+        <p>Roles: {{user.User.Roles}}</p>
+      </div>
+    </div>
   </mat-card>
 </div>
 

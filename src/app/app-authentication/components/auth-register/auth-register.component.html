@@ -1,30 +1,34 @@
 <div class="auth-registration-wrapper">
   <div class="auth-registration-container">
     <mat-card class="card">
-
-      <div class="logo">
+      <div class="regi-logo">
         <img src="assets/img/logo.png" alt="image is not found">
         <p class="title">Avenue</p>
         <p class="sub-title">Continue log in with email address</p>
       </div>
 
       <form (ngSubmit)="onSubmitForm()"
-            [formGroup]="authenticationForm" class="margin-top-16">
-
+            [formGroup]="authenticationForm" class="margin-top-12">
         <mat-form-field appearance="outline">
           <mat-label>First Name</mat-label>
           <input matInput formControlName="FirstName">
           <mat-error>
-          <p *ngIf="authenticationForm.controls.FirstName
+            <p *ngIf="authenticationForm.controls.FirstName
            .hasError('required')">First name is required</p>
-          <p *ngIf="authenticationForm.controls.FirstName
-           .hasError('firstName')">Invalid email Address</p>
+            <p *ngIf="authenticationForm.controls.FirstName
+            .hasError('maxlength')">Maximum character limit 50</p>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Last Name</mat-label>
           <input matInput formControlName="LastName">
+          <mat-error>
+            <p *ngIf="authenticationForm.controls.LastName
+            .hasError('required')">Last name is required</p>
+            <p *ngIf="authenticationForm.controls.LastName
+            .hasError('maxlength')">Maximum character limit 50</p>
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -54,10 +58,14 @@
           mat-raised-button color="primary"
           [disabled]="authenticationForm.invalid"
           type="submit">
-          Register
+          Create Account
         </button>
-
       </form>
+      <div class='sign-in-buttons'>
+        <p>Already have an account?
+          <span class="sign-in-link" (click)="login()">Sign In</span>
+        </p>
+      </div>
     </mat-card>
   </div>
 </div>
