@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShellComponent } from "./components/shell/shell.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { UsersComponent } from "./components/users/users.component";
+import { ContactListComponent } from "./components/contact-list/contact-list.component";
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
         component: UsersComponent
       },
       {
+        path: 'contact-list',
+        component: ContactListComponent
+      },
+      {
         path: 'c',
         loadChildren: () => import('../app-admin-categories/app-categories.module').then(m => m.AppCategoriesModule)
       },
@@ -28,7 +33,7 @@ const routes: Routes = [
       {
         path: 'o',
         loadChildren: () => import('../app-admin-orders/app-order.module').then(m => m.AppOrderModule)
-      }
+      },
     ]
   }
 ];

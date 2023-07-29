@@ -9,40 +9,50 @@
       </div>
       <div class="mb-4">
         <div class="checkout-form">
-          <form [formGroup]="contactFormGroup">
-            <div class="p-fluid p-formgrid grid">
-              <div class="p-field col-4 field-width">
-                <label for="name">Name</label>
-                <input formControlName="name" id="name" type="text" pInputText/>
-                <small *ngIf="contactForm['name'].invalid && isSubmitted" class="p-error"
-                >Name is required</small>
-              </div>
-              <div class="p-field col-4 field-width">
-                <label for="email">Email</label>
-                <input formControlName="email" id="email" type="text" pInputText/>
-                <small *ngIf="contactForm['email'].invalid && isSubmitted" class="p-error"
-                >email is required</small>
-              </div>
-              <div class="p-field col-4 field-width">
-                <label for="message">Message</label>
-                <textarea
-                  pInputText
-                  formControlName="richDescription"
-                  [rows]="5"
-                  [cols]="30"
-                ></textarea>
-                <small *ngIf="contactForm['message'].invalid && isSubmitted" class="p-error"
-                >phone is required</small>
-              </div>
+          <form [formGroup]="contactForm" (ngSubmit)="onFormSubmit()">
+            <div
+              class="margin-bottom-16 avenue-form-field"
+              [ngClass]="{ error: enabledErrorIf('name', ['required'])}"
+            >
+              <label class="avenue-label">Name</label>
+              <input type="text" class="avenue-input" formControlName="name" pInputText/>
+              <avenue-mat-error>
+                <mat-error *ngIf="hasError('name', 'required')">
+                  Name is required
+                </mat-error>
+              </avenue-mat-error>
             </div>
-            <button
-              class="contact-button"
-              mat-raised-button color="primary"
-              [disabled]="contactFormGroup.invalid"
-              type="submit">
-              Send
-            </button>
+            <div
+              class="margin-bottom-16 avenue-form-field"
+              [ngClass]="{ error: enabledErrorIf('email', ['required'])}"
+            >
+              <label class="avenue-label">Email</label>
+              <input type="text" class="avenue-input" formControlName="email" pInputText/>
+              <avenue-mat-error>
+                <mat-error *ngIf="hasError('email', 'required')">
+                  <small>Email is required</small>
+                </mat-error>
+              </avenue-mat-error>
+            </div>
+            <div
+              class="margin-bottom-16 avenue-form-field"
+              [ngClass]="{ error: enabledErrorIf('message', ['required'])}"
+            >
+              <label class="avenue-label">Message</label>
+              <textarea rows="5" class="avenue-input" pInputText formControlName="message"></textarea>
+              <avenue-mat-error>
+                <mat-error *ngIf="hasError('message', 'required')">
+                  <small>Message is required</small>
+                </mat-error>
+              </avenue-mat-error>
+            </div>
           </form>
+          <button
+            class="contact-button"
+            mat-raised-button color="primary"
+            (click)="onFormSubmit()">
+            Send
+          </button>
         </div>
       </div>
     </div>
