@@ -13,6 +13,7 @@ import { AppSharedModule } from "../app-shared/app-shared.module";
 import { ConfirmationService, MessageService } from "primeng/api";
 import { CartService } from "../app-shared-services/services/cart.service";
 import { NgxStripeModule } from "ngx-stripe";
+import { Error404Component } from './components/error404/error404.component';
 
 export function startupServiceFactory(startupService: StartupService,
                                       tokenService: TokenService): Function {
@@ -37,7 +38,8 @@ export function startupServiceFactory(startupService: StartupService,
 
 @NgModule({
   declarations: [
-    RootDefaultComponent
+    RootDefaultComponent,
+    Error404Component,
   ],
   bootstrap: [
     RootDefaultComponent

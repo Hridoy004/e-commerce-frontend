@@ -1,0 +1,17 @@
+.not-found-page-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  text-align: center;
+
+  img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .font-p {
+    font-weight: 500;
+  }
+}
