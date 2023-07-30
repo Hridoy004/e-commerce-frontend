@@ -41,6 +41,17 @@ export class OrderService {
     return this.httpClient.get(url, httpOptions);
   }
 
+  OrderId(productId: any) {
+    const token = this.tokenService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    let url = `${this.baseUrl}/api/order/${productId}`;
+    return this.httpClient.get(url, httpOptions);
+  }
+
   UpdateOrder(orderStatus: { status: string }, orderId: string) {
     const token = this.tokenService.getToken();
     const httpOptions = {

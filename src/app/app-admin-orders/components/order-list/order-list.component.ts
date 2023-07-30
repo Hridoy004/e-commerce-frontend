@@ -4,6 +4,7 @@ import { ConfirmationService, MessageService } from "primeng/api";
 import { Router } from "@angular/router";
 import { Order } from "../../interfaces/order.interface";
 import { ORDER_STATUS } from "../../../app-e-eommerce-constants/e-commerce-constants";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 
 @Component({
@@ -18,6 +19,7 @@ export class OrderListComponent implements OnInit {
   constructor(private ordersService: OrderService,
               private messageService: MessageService,
               private confirmationService: ConfirmationService,
+              private matSnackbar: MatSnackBar,
               private router: Router) {
 
   }
@@ -38,14 +40,12 @@ export class OrderListComponent implements OnInit {
   }
 
   deleteOrder(orderId: string) {
-    this.confirmationService.confirm({
-      message: 'Do you want to Delete this Order?',
-      header: 'Delete Order',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        this.ordersService.DeleteOrder(orderId).subscribe(() => {
-          this.getOrders();
+    this.ordersService.DeleteOrder(orderId).subscribe((response: any) => {
+      if (response.success) {
+        this.matSnackbar.open('Order deleted successfully', undefined, {
+          duration: 3000
         });
+        this.getOrders();
       }
     });
   }

@@ -7,6 +7,7 @@ import { ProductDetailsComponent } from "../app-products/components/product-deta
 import { CartPageComponent } from "../app-order/components/cart-page/cart-page.component";
 import { ThankYouComponent } from "../app-order/components/thank-you/thank-you.component";
 import { CheckoutComponent } from "../app-order/components/checkout/checkout.component";
+import { ViewOrderComponent } from "../app-order/components/view-order/view-order.component";
 
 const routes: Routes = [
   {
@@ -40,6 +41,14 @@ const routes: Routes = [
       {
         path: 'success',
         component: ThankYouComponent
+      },
+      {
+        path: 'view-order',
+        component: ViewOrderComponent
+      },
+      {
+        path: 'view-order/:id',
+        component: ViewOrderComponent
       },
       {
         path: 'profile',

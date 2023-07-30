@@ -14,6 +14,11 @@ import { MatButtonModule } from "@angular/material/button";
 import { InputTextModule } from "primeng/inputtext";
 import { InputMaskModule } from "primeng/inputmask";
 import { DropdownModule } from "primeng/dropdown";
+import { ViewOrderComponent } from './components/view-order/view-order.component';
+import { CardModule } from "primeng/card";
+import { FieldsetModule } from "primeng/fieldset";
+import { MatCardModule } from "@angular/material/card";
+import { MatGridListModule } from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -21,24 +26,29 @@ import { DropdownModule } from "primeng/dropdown";
         CartIconComponent,
         CartPageComponent,
         OrderSummaryComponent,
-        ThankYouComponent
+        ThankYouComponent,
+        ViewOrderComponent
     ],
     exports: [
         CartIconComponent,
         OrderSummaryComponent
     ],
-  imports: [
-    CommonModule,
-    AppOrderRoutingModule,
-    BadgeModule,
-    ButtonModule,
-    InputNumberModule,
-    FormsModule,
-    MatButtonModule,
-    InputTextModule,
-    InputMaskModule,
-    DropdownModule,
-    ReactiveFormsModule,
-  ]
+    imports: [
+        CommonModule,
+        AppOrderRoutingModule,
+        BadgeModule,
+        ButtonModule,
+        InputNumberModule,
+        FormsModule,
+        MatButtonModule,
+        InputTextModule,
+        InputMaskModule,
+        DropdownModule,
+        ReactiveFormsModule,
+        CardModule,
+        FieldsetModule,
+        MatCardModule,
+        MatGridListModule,
+    ]
 })
 export class AppOrderModule { }
