@@ -3,7 +3,7 @@ import { CartService } from "../../../app-shared-services/services/cart.service"
 import { Router } from "@angular/router";
 import { OrderService } from "../../../app-admin-orders/services/order.service";
 import { CartItemDetailed } from "../../../app-shared-services/interfaces/cart.interface";
-import { Subject, takeUntil } from "rxjs";
+import { Subject } from "rxjs";
 
 @Component({
   selector: 'app-cart-page',
@@ -57,13 +57,25 @@ export class CartPageComponent implements OnInit, OnDestroy {
   }
 
   updateCartItemQuantity(event: any, cartItem: CartItemDetailed) {
-    this.cartService.setCartItem(
-      {
-        productId: cartItem.product.id,
-        quantity: event.value
-      },
-      true
-    )
-  }
+    const maxQuantity = 10;
 
+    if (cartItem && event.value <= maxQuantity) {
+      this.cartService.setCartItem(
+        {
+          productId: cartItem.product.id,
+          quantity: event.value
+        },
+        true
+      );
+    } else {
+      cartItem.quantity = maxQuantity;
+      this.cartService.setCartItem(
+        {
+          productId: cartItem.product.id,
+          quantity: maxQuantity
+        },
+        true
+      );
+    }
+  }
 }
