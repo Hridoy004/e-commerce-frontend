@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from 'src/app/app-admin-products/interfaces/products.interfaces';
 import { Subject, takeUntil } from "rxjs";
 import { ProductsService } from "../../../app-admin-products/services/products.service";
@@ -20,7 +20,8 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   constructor(private productService: ProductsService,
               private cartService: CartService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -46,6 +47,16 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
           console.log(response);
         }
       });
+  }
+
+  buyNow() {
+    const cartItem: CartItem = {
+      productId: this.product.id,
+      quantity: this.quantity
+    };
+
+    this.cartService.setCartItem(cartItem);
+    this.router.navigate(['/checkout']);
   }
 
   addProductToCart() {

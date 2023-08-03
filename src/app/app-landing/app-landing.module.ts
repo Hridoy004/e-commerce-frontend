@@ -19,6 +19,7 @@ import { InputTextModule } from "primeng/inputtext";
 import { ReactiveFormsModule } from "@angular/forms";
 import { InputMaskModule } from "primeng/inputmask";
 import { DropdownModule } from "primeng/dropdown";
+import { MatButtonModule } from "@angular/material/button";
 
 
 @NgModule({
@@ -28,22 +29,23 @@ import { DropdownModule } from "primeng/dropdown";
     HomeDefalutComponent,
     CheckoutComponent
   ],
-  imports: [
-    CommonModule,
-    AppLandingRoutingModule,
-    MatSidenavModule,
-    ButtonModule,
-    CardModule,
-    ToolbarModule,
-    AppAdminModule,
-    FlexModule,
-    AppSharedModule,
-    AppProductsModule,
-    AppOrderModule,
-    InputTextModule,
-    ReactiveFormsModule,
-    InputMaskModule,
-    DropdownModule
-  ]
+    imports: [
+        CommonModule,
+        AppLandingRoutingModule,
+        MatSidenavModule,
+        ButtonModule,
+        CardModule,
+        ToolbarModule,
+        AppAdminModule,
+        FlexModule,
+        AppSharedModule,
+        AppProductsModule,
+        AppOrderModule,
+        InputTextModule,
+        ReactiveFormsModule,
+        InputMaskModule,
+        DropdownModule,
+        MatButtonModule
+    ]
 })
 export class AppLandingModule { }

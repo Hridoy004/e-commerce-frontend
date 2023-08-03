@@ -12,9 +12,15 @@
     }
 
     &-button {
-      margin-top: 20px;
+      margin-top: 16px;
       button {
-        width: 100%;
+        width: 100% !important;
+        background: #2b8fe1;
+        color: #ffffff;
+        border-color: #2b8fe1;
+        padding: 4px;
+        font-weight: 400;
+        font-size: 18px;
       }
     }
   }

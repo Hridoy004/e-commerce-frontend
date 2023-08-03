@@ -69,7 +69,12 @@
     <div class="col-4">
       <app-order-summary></app-order-summary>
       <div class="checkout-button">
-        <p-button label="Place-Order" (onClick)="placeOrder()"></p-button>
+        <button
+          mat-raised-button
+          (click)="placeOrder()"
+        >
+          Place-Order
+        </button>
       </div>
     </div>
   </div>
