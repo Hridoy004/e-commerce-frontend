@@ -22,6 +22,8 @@ export function startupServiceFactory(startupService: StartupService,
     '/auth/login',
     '/auth/register',
     '/auth/verify',
+    '/auth/forget-password',
+    '/auth/reset-password'
   ]
 
   return () => {

@@ -12,13 +12,17 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { AccountVerificationComponent } from './components/account-verification/account-verification.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 @NgModule({
   declarations: [
     AuthLoginComponent,
     AuthRegisterComponent,
-    AccountVerificationComponent
+    AccountVerificationComponent,
+    ForgetPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,

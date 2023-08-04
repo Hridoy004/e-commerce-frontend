@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendService } from "../../../app-shared-services/services/backend.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { BackendService } from "../../../app-shared-services/services/backend.service";
 import { TokenService } from "../../../app-shared-services/services/token.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-auth-login',
-  templateUrl: './auth-login.component.html',
-  styleUrls: ['./auth-login.component.scss']
+  selector: 'app-forget-password',
+  templateUrl: './forget-password.component.html',
+  styleUrls: ['./forget-password.component.scss']
 })
-export class AuthLoginComponent implements OnInit {
+export class ForgetPasswordComponent implements OnInit {
 
-  authenticationForm = new FormGroup(
-    {
+  forgetPasswordForm = new FormGroup({
       Email: new FormControl('', [Validators.required, Validators.email]),
-      Password: new FormControl('', [Validators.required, Validators.minLength(8)]),
     }
   );
 
@@ -29,16 +27,14 @@ export class AuthLoginComponent implements OnInit {
   }
 
   onSubmitForm() {
-    const data: any = this.authenticationForm.getRawValue();
-    this.backendService.Authenticate(data).subscribe((response: any) => {
+    const data: any = this.forgetPasswordForm.getRawValue();
+    this.backendService.ForgetPassword(data).subscribe((response: any) => {
       if (response.Success) {
-        const token = response.Token;
-        this.tokenService.setToken(token);
-        this.matSnackbar.open('Login success', undefined, {
+        this.matSnackbar.open('Please go to your mail for reseting the password', undefined, {
           duration: 3000
         });
-        this.router.navigate(['/']).then();
       }
+
     }, (errorResponse: any) => {
       let errorMessage = errorResponse?.error?.Message;
       if (errorMessage) {
@@ -49,11 +45,7 @@ export class AuthLoginComponent implements OnInit {
     })
   }
 
-  singup() {
-    this.router.navigate(['/auth/register']).then();
-  }
-
-  fogotpassword() {
-    this.router.navigate(['/auth/forget-password']).then();
+  login() {
+    this.router.navigate(['/auth/login']).then();
   }
 }

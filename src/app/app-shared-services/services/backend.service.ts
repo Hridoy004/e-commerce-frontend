@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Registration } from "../interfaces/registration.interfaces";
 import { Category } from "../../app-admin-categories/interfaces/category.interface";
 import { TokenService } from "./token.service";
+import { ForgetPassword } from "../interfaces/forget.password.interface";
+import { ResetPassword } from "../interfaces/reset.password.interface";
 
 const httpOptions = {
   headers: new HttpHeaders({})
@@ -35,6 +37,16 @@ export class BackendService {
   Registration(authenticate: Registration) {
     let url = `${this.baseUrl}/Authentication/Register`;
     return this.httpClient.post(url, authenticate);
+  }
+
+  ForgetPassword(forgetPassword: ForgetPassword) {
+    let url = `${this.baseUrl}/Authentication/Forget-password`;
+    return this.httpClient.post(url, forgetPassword);
+  }
+
+  ResetPassword(resetPassword: ResetPassword) {
+    let url = `${this.baseUrl}/Authentication/Reset-password`;
+    return this.httpClient.put(url, resetPassword);
   }
 
   GetUser() {

@@ -40,12 +40,19 @@ export class OrderListComponent implements OnInit {
   }
 
   deleteOrder(orderId: string) {
-    this.ordersService.DeleteOrder(orderId).subscribe((response: any) => {
-      if (response.success) {
-        this.matSnackbar.open('Order deleted successfully', undefined, {
-          duration: 3000
+    this.confirmationService.confirm({
+      message: 'Do you want to Delete this Category?',
+      header: 'Delete Category',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.ordersService.DeleteOrder(orderId).subscribe((response: any) => {
+          if (response.success) {
+            this.matSnackbar.open('Order deleted successfully', undefined, {
+              duration: 3000
+            });
+            this.getOrders();
+          }
         });
-        this.getOrders();
       }
     });
   }

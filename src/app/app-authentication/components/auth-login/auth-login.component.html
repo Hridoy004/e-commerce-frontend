@@ -47,9 +47,12 @@
           Sign In
         </button>
       </form>
-      <div class='core-login-in-buttons'>
+      <div class='core-login-in-buttons' fxLayout="row" fxLayoutAlign="space-between center">
         <p>Don’t have an account yet?
           <span class="sign-in-link" (click)="singup()">Sign Up</span>
+        </p>
+        <p>
+          <span class="sign-in-link" (click)="fogotpassword()">Forgot password</span>
         </p>
       </div>
     </mat-card>
